@@ -59,12 +59,16 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-centos编译安装git" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/04/14/hello-world/" class="article-date">
-  <time datetime="2014-04-14T05:11:39.000Z" itemprop="datePublished">4月 14 2014</time>
+    <a href="/2014/04/13/centos编译安装git/" class="article-date">
+  <time datetime="2014-04-13T10:56:42.000Z" itemprop="datePublished">4月 13 2014</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -73,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/14/hello-world/">Hello World</a>
+      <a class="article-title" href="/2014/04/13/centos编译安装git/">Centos编译安装Git</a>
     </h1>
   
 
@@ -81,12 +85,515 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://zespia.tw/hexo" target="_blank">Hexo</a>! This is your very first post. Check <a href="http://zespia.tw/hexo/docs" target="_blank">documentation</a> to learn how to use.</p>
+        <p>Centos默认源里面没有Git，只能自己编译了</p>
+<p>下载最新的Git源码包<a href="http://codemonkey.org.uk/projects/git-snapshots/git/git-latest.tar.xz" target="_blank">http://codemonkey.org.uk/projects/git-snapshots/git/git-latest.tar.xz</a></p>
+<p>原来官方已经把压缩文件格式改了，需要解压两次</p>
+<pre class="brush:bash">xz -d git-latest.tar.xz
+tar xf git-latest.tar
+cd git-xxxx-xx-xx //xxxx-xx-xx是日期，按照解压的文件为准
+autoconf
+./configure
+make &amp;&amp; make install</pre>
+
+<p>&nbsp;</p>
+<p>xz在centos默认源中有 yum -y install xz 即可</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.bubutang.com/2014/04/14/hello-world/" data-id="3fp5wjl74sqjr39b" class="article-share-link">Share</a>
+      <a data-url="http://blog.bubutang.com/2014/04/13/centos编译安装git/" data-id="l7uwz171mo3l5cfy" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2014/04/13/centos编译安装git/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ios固件更新到7-0-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/24/ios固件更新到7-0-3/" class="article-date">
+  <time datetime="2013-10-24T15:54:34.000Z" itemprop="datePublished">10月 24 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/消息/">消息</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/24/ios固件更新到7-0-3/">ios固件更新到7.0.3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>苹果发布ios 7.0.3 更新，本次更新版本号为11B411。添加对iCloud Keychain的支持，还包括了多项问题的修复以及系统运行效能的增强。</p>
+<p><strong>更新内容：</strong></p>
+<p>－添加iCloud Keychain，在所有授权设备上追踪用户账户名称、密码、信用卡<br>－添加Password Generator，这样Safari 就可以给用户的在线账户提供唯一的、不易被猜到的密码<br>－更新锁屏，当使用Touch ID 时延迟显示“滑动来解锁”<br>－Spotlight搜索恢复搜索网页和 Wikipedia 的功能</p>
+<p>－修复iMessage 无法发送信息的问题<br>－修复iMessage 无法激活的问题<br>－提高使用iWork 应用时候的系统稳定性<br>－修复加速器校准问题</p>
+<p>－修复导致Siri 和VoiceOver 使用更低质语音的问题<br>－修复绕过锁屏密码的问题<br>－强化Reduce Motion 设置<br>－修复导致VoiceOver 输入过分灵敏的问题<br>－解决软件更新之后，受监督设备不再受限制的问题</p>
+<p>下载地址：<a href="http://blog.bubutang.com/ios-firmware-download" title="ios固件官方下载汇总(已更新到7.0.3)">http://blog.bubutang.com/ios-firmware-download</a> (请收藏)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2013/10/24/ios固件更新到7-0-3/" data-id="i37v1dmfclmr6juk" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2013/10/24/ios固件更新到7-0-3/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-wordpress函数-add_theme_support" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/24/wordpress函数-add_theme_support/" class="article-date">
+  <time datetime="2013-09-24T05:02:49.000Z" itemprop="datePublished">9月 24 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Wordpress/">Wordpress</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/24/wordpress函数-add_theme_support/">WordPress函数 add_theme_support</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近做WP主题才知道原来已经增加了很多函数，例如add_theme_support</p>
+<p>用法</p>
+<pre class="brush:php">add_theme_support($option,$defaults);</pre>
+
+<p>&nbsp;</p>
+<p>其中$option参数支持以下几个</p>
+<ul>
+<li>‘post-formats’</li>
+<li>‘post-thumbnails’</li>
+<li>‘custom-background’</li>
+<li>‘custom-header’</li>
+<li>‘automatic-feed-links’</li>
+<li>‘menus’</li>
+<li>‘html5’</li>
+</ul>
+<p>$defaults是默认值数组</p>
+<p>其中 custom-background 能代替之前的 <a href="http://blog.bubutang.com/post/363.html" title="WordPress 主题添加自定义背景">add_custom_background()</a> 函数</p>
+<p>使用方法在主题 functions.php 函数文件加入下面语句代替之前的add_custom_background()函数</p>
+<pre class="brush:php">$defaults = array(
+    &#39;default-color&#39;          =&gt; &#39;&#39;,
+    &#39;default-image&#39;          =&gt; &#39;&#39;,
+    &#39;wp-head-callback&#39;       =&gt; &#39;_custom_background_cb&#39;,
+    &#39;admin-head-callback&#39;    =&gt; &#39;&#39;,
+    &#39;admin-preview-callback&#39; =&gt; &#39;&#39;
+);
+add_theme_support( &#39;custom-background&#39;, $defaults );</pre>
+
+<p>&nbsp;</p>
+<p>其他用法可以参照<a href="http://codex.wordpress.org/Function_Reference/add_theme_support" title="add_theme_support函数用法" target="_blank">wp官方</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2013/09/24/wordpress函数-add_theme_support/" data-id="zn548s1tvco897sr" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2013/09/24/wordpress函数-add_theme_support/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-wordpress-主题添加自定义背景" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/22/wordpress-主题添加自定义背景/" class="article-date">
+  <time datetime="2013-09-22T15:42:01.000Z" itemprop="datePublished">9月 22 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Wordpress/">Wordpress</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/22/wordpress-主题添加自定义背景/">Wordpress 主题添加自定义背景</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在为本站设计新主题，好久没动过wordpress，很多新功能，例如主题设置背景图片背景颜色，其实实现很简单，但是Google一圈，只是提示在主题的functions.php添加add_custom_background()函数，只是添加这个函数只开启了这个自定义背景的功能，还要对主题修改。</p>
+<p>在body添加body_class()函数输出</p>
+<p>例如 <pre class="brush:php">&lt;body &lt;?php body_class(); ?&gt;&gt;&lt;/body&gt;</pre></p>
+<p>&nbsp;</p>
+<p>还有要注意检查主题的样式表是否在wp_head()函数输出之前，因为自定义背景的CSS会在wp_head()输出，如果主题的样式表在wp_head()输出之后调用会覆盖自定义背景样式。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2013/09/22/wordpress-主题添加自定义背景/" data-id="7zdmwlve1n7tp483" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2013/09/22/wordpress-主题添加自定义背景/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-uptime最长时间的机器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/22/uptime最长时间的机器/" class="article-date">
+  <time datetime="2013-09-22T03:32:19.000Z" itemprop="datePublished">9月 22 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>►<a class="article-category-link" href="/categories/Linux/消息/">消息</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/22/uptime最长时间的机器/">Uptime最长时间的机器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>刚在V2EX 看到一篇帖子<a href="http://www.v2ex.com/t/79635" target="_blank">http://www.v2ex.com/t/79635</a> 这台机器uptime是1761天</p>
+<p>好奇看看公司手头上的机器uptime最长的是多久</p>
+<p>top - 10:19:04 up 806 days,  9:49,  1 user,  load average: 0.11, 0.05, 0.01</p>
+<p>也不过806天，希望能撑过3年</p>
+<p>网上有篇晒最长uptime的，竟然有16年</p>
+<p><img src="http://home.ix.netcom.com/~jjingber/IMG_0682.JPG" alt="uptime"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2013/09/22/uptime最长时间的机器/" data-id="99r74f20khto0zmd" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2013/09/22/uptime最长时间的机器/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-google新导航栏" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/21/google新导航栏/" class="article-date">
+  <time datetime="2013-09-21T06:22:59.000Z" itemprop="datePublished">9月 21 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/消息/">消息</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/21/google新导航栏/">Google新导航栏</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Gmail Google+里面都已经用上了，顶部栏也逐步取代了之前的“黑又硬”，可是好看不好用，如果能按照自己的意愿排列组合那就还差不多。</p>
+<p><a href="http://blog.bubutang.com/wp-content/uploads/2013/09/Google-new-nav.png"><img src="http://blog.bubutang.com/wp-content/uploads/2013/09/Google-new-nav-216x300.png" alt="Google-new-nav"></a></p>
+<p>除了新的导航外，LOGO也扁平化了，中文版暂时看不到，英文版已经上线了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2013/09/21/google新导航栏/" data-id="9whfzn9wbb5c7wi2" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2013/09/21/google新导航栏/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-测试一下静态文件加速" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/18/测试一下静态文件加速/" class="article-date">
+  <time datetime="2013-09-18T07:10:03.000Z" itemprop="datePublished">9月 18 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/本站/">本站</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/18/测试一下静态文件加速/">测试一下静态文件加速</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>静态文件加速使用了七牛，呵呵~不知道和Google PageSpeed有木有冲突。</p>
+<p><a href="http://blog.bubutang.com/wp-content/uploads/2013/09/DSC_8509.jpeg"><img src="http://blog.bubutang.com/wp-content/uploads/2013/09/DSC_8509-199x300.jpeg" alt="DSC_8509"></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2013/09/18/测试一下静态文件加速/" data-id="th5qkrjkbi0rsvlm" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2013/09/18/测试一下静态文件加速/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-centos-编译安装php扩展apc" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/18/centos-编译安装php扩展apc/" class="article-date">
+  <time datetime="2013-09-18T04:01:01.000Z" itemprop="datePublished">9月 18 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/18/centos-编译安装php扩展apc/">centos 编译安装php扩展APC</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>忘记给php装加速器了</p>
+<p>下载APC最新稳定版本源码</p>
+<pre class="brush:other">wget http://pecl.php.net/get/APC-3.1.9.tgz</pre>
+
+<p>&nbsp;</p>
+<p>放到/usr/local/src</p>
+<p>解压 <pre class="brush:other">tar xf APC-3.1.9.tgz</pre></p>
+<p>&nbsp;</p>
+<p>运行</p>
+<pre class="brush:other">phpize /usr/local/php/phpize</pre>
+
+<p>&nbsp;</p>
+<p>开始编译 </p>
+<pre class="brush:other">./configure --with-php-config=/usr/local/php/bin/php-config
+make &amp;&amp; make install</pre>
+
+<p>&nbsp;</p>
+<p>然后会在php扩展目录生成apc.so</p>
+<p>编辑php.ini 加入下面两句</p>
+<pre class="brush:other">[apc]   
+extension=&quot;apc.so&quot;  </pre>
+
+<p>&nbsp;</p>
+<p>最后重启一下phpfpm  service php-fpm restart 大公告成</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2013/09/18/centos-编译安装php扩展apc/" data-id="x38yl7hoqeybzbnp" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2013/09/18/centos-编译安装php扩展apc/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-重生" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/18/重生/" class="article-date">
+  <time datetime="2013-09-18T03:00:08.000Z" itemprop="datePublished">9月 18 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/本站/">本站</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/18/重生/">重生</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近VPS便宜，我也入手了一个，5$/mo的 <a href="https://www.digitalocean.com/?refcode=d76833dfd0ab" title="DigitalOcean" target="_blank">DigitalOcean</a> 编译安装了LNMP，然后用Google PageSpeed加速一下，速度超快，所以又把BLOG从Blogger迁移到这里，恢复数据库，然后装上新版本的Wordpress，登录后台的时候提示升级数据库，然后就恢复了，全程不到5分钟。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2013/09/18/重生/" data-id="zkz3iyz1xa1oekq7" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2013/09/18/重生/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-国内视频网站广告屏蔽方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2011/02/22/国内视频网站广告屏蔽方法/" class="article-date">
+  <time datetime="2011-02-22T02:19:41.000Z" itemprop="datePublished">2月 22 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/旧文章/">旧文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/02/22/国内视频网站广告屏蔽方法/">国内视频网站广告屏蔽方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网上转来，据说效果十分显著 </p>
+<p>第一步：找到C:\WINDOWS\system32\drivers\etc里面的hosts文件,双击打开，选用记事本打开。 </p>
+<p>第二步：把下面的代码复制到文件中并保存 &gt; <pre>#优酷</p>
+<blockquote>
+<p>127.0.0.1 atm.youku.com<br>127.0.0.1 Fvid.atm.youku.com<br>127.0.0.1 html.atm.youku.com<br>127.0.0.1 valb.atm.youku.com<br>127.0.0.1 valf.atm.youku.com<br>127.0.0.1 valo.atm.youku.com<br>127.0.0.1 valp.atm.youku.com<br>127.0.0.1 lstat.youku.com<br>127.0.0.1 speed.lstat.youku.com<br>127.0.0.1 urchin.lstat.youku.com<br>127.0.0.1 stat.youku.com<br>127.0.0.1 static.lstat.youku.com<br>127.0.0.1 valc.atm.youku.com<br>127.0.0.1 vid.atm.youku.com<br>127.0.0.1 walp.atm.youku.com</p>
+<h1 id="百度：">百度：</h1>
+<p>127.0.0.1 a.baidu.com<br>127.0.0.1 baidutv.baidu.com<br>127.0.0.1 bar.baidu.com<br>127.0.0.1 c.baidu.com<br>127.0.0.1 cjhq.baidu.com<br>127.0.0.1 cpro.baidu.com<br>127.0.0.1 drmcmm.baidu.com<br>127.0.0.1 e.baidu.com<br>127.0.0.1 eiv.baidu.com<br>127.0.0.1 hc.baidu.com<br>127.0.0.1 hm.baidu.com<br>127.0.0.1 ma.baidu.com<br>127.0.0.1 nsclick.baidu.com<br>127.0.0.1 spcode.baidu.com<br>127.0.0.1 tk.baidu.com<br>127.0.0.1 union.baidu.com<br>127.0.0.1 ucstat.baidu.com<br>127.0.0.1 utility.baidu.com<br>127.0.0.1 utk.baidu.com<br>127.0.0.1 focusbaiduafp.allyes.com</p>
+<h1 id="奇艺">奇艺</h1>
+<p>127.0.0.1 afp.qiyi.com<br>127.0.0.1 focusbaiduafp.allyes.com</p>
+<h1 id="CNTV">CNTV</h1>
+<p>127.0.0.1 a.cctv.com<br>127.0.0.1 a.cntv.cn<br>127.0.0.1 ad.cctv.com<br>127.0.0.1 d.cntv.cn<br>127.0.0.1 adguanggao.eee114.com<br>127.0.0.1 cctv.adsunion.com</p>
+<h1 id="新浪视频">新浪视频</h1>
+<p>127.0.0.1 dcads.sina.com.cn</p>
+<h1 id="pptv">pptv</h1>
+<p>127.0.0.1 pp2.pptv.com</p>
+<h1 id="乐视">乐视</h1>
+<p>127.0.0.1 pro.letv.com</p>
+<h1 id="搜狐高清">搜狐高清</h1>
+<p>127.0.0.1 images.sohu.com<br>@HostsX 国内站点广告/视频类网站</p>
+<h1 id="CNTV-1">CNTV</h1>
+<p>127.0.0.1 a.cctv.com<br>127.0.0.1 a.cntv.cn<br>127.0.0.1 ad.cctv.com<br>127.0.0.1 d.cntv.cn<br>127.0.0.1 adguanggao.eee114.com<br>127.0.0.1 cctv.adsunion.com</p>
+<h1 id="我乐网">我乐网</h1>
+<p>127.0.0.1 acs.56.com<br>127.0.0.1 acs.agent.56.com<br>127.0.0.1 acs.agent.v-56.com<br>127.0.0.1 bill.agent.56.com<br>127.0.0.1 bill.agent.v-56.com<br>127.0.0.1 stat.56.com<br>127.0.0.1 stat2.corp.56.com<br>127.0.0.1 union.56.com<br>127.0.0.1 uvimage.56.com<br>127.0.0.1 v16.56.com</p>
+<h1 id="6间房">6间房</h1>
+<p>127.0.0.1 pole.6rooms.com<br>127.0.0.1 shrek.6.cn<br>127.0.0.1 simba.6.cn<br>127.0.0.1 union.6.cn</p>
+<h1 id="土豆网">土豆网</h1>
+<p>127.0.0.1 adextensioncontrol.tudou.com<br>127.0.0.1 iwstat.tudou.com<br>127.0.0.1 nstat.tudou.com<br>127.0.0.1 stats.tudou.com<br>127.0.0.1 <em>.p2v.tudou.com</em><br>127.0.0.1 at-img1.tdimg.com<br>127.0.0.1 at-img2.tdimg.com<br>127.0.0.1 at-img3.tdimg.com<br>127.0.0.1 adplay.tudou.com<br>127.0.0.1 adcontrol.tudou.com<br>127.0.0.1 stat.tudou.com</p>
+<h1 id="酷6网">酷6网</h1>
+<p>127.0.0.1 1.allyes.com.cn<br>127.0.0.1 analytics.ku6.com<br>127.0.0.1 gug.ku6cdn.com<br>127.0.0.1 ku6.allyes.com<br>127.0.0.1 ku6afp.allyes.com<br>127.0.0.1 pq.stat.ku6.com<br>127.0.0.1 st.vq.ku6.cn<br>127.0.0.1 stat0.888.ku6.com<br>127.0.0.1 stat1.888.ku6.com<br>127.0.0.1 stat2.888.ku6.com<br>127.0.0.1 stat3.888.ku6.com<br>127.0.0.1 static.ku6.com<br>127.0.0.1 v0.stat.ku6.com<br>127.0.0.1 v1.stat.ku6.com<br>127.0.0.1 v2.stat.ku6.com<br>127.0.0.1 v3.stat.ku6.com</p>
+<h1 id="激动网">激动网</h1>
+<p>127.0.0.1 86file.megajoy.com<br>127.0.0.1 86get.joy.cn<br>127.0.0.1 86log.joy.cn</p>
+<h1 id="天线视频">天线视频</h1>
+<p>127.0.0.1 casting.openv.com<br>127.0.0.1 m.openv.tv<br>127.0.0.1 uniclick.openv.com</p>
+<h1 id="迅雷看看屏蔽：">迅雷看看屏蔽：</h1>
+<p>127.0.0.1 mcfg.sandai.net<br>127.0.0.1 biz5.sandai.net<br>127.0.0.1 server1.adpolestar.net<br>127.0.0.1 advstat.xunlei.com<br>127.0.0.1 mpv.sandai.net</pre></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2011/02/22/国内视频网站广告屏蔽方法/" data-id="00afrug98j462t3k" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2011/02/22/国内视频网站广告屏蔽方法/#disqus_thread" class="article-comment-link">Comments</a>
       
       
     </footer>
@@ -97,11 +604,22 @@
 
   
   
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/30/">30</a><a class="extend next" href="/archives/page/2/">Next &raquo;</a>
+    </nav>
+  
 </section>
         
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/消息/">消息</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Wordpress/">Wordpress</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/旧文章/">旧文章</a><span class="category-list-count">291</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/本站/">本站</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/消息/">消息</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
   
     
   
@@ -111,7 +629,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04">四月 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04">四月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02">二月 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12">十二月 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04">四月 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03">三月 2010</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02">二月 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12">十二月 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11">十一月 2009</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10">十月 2009</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09">九月 2009</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08">八月 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07">七月 2009</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04">四月 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03">三月 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02">二月 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01">一月 2009</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12">十二月 2008</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11">十一月 2008</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10">十月 2008</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09">九月 2008</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08">八月 2008</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07">七月 2008</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06">六月 2008</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05">五月 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/04">四月 2008</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/03">三月 2008</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/02">二月 2008</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/01">一月 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/12">十二月 2007</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/11">十一月 2007</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/10">十月 2007</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/09">九月 2007</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/08">八月 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07">七月 2007</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06">六月 2007</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/05">五月 2007</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04">四月 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/03">三月 2007</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/02">二月 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/12">十二月 2006</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/11">十一月 2006</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/10">十月 2006</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/09">九月 2006</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/08">八月 2006</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/07">七月 2006</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/06">六月 2006</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05">五月 2006</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/04">四月 2006</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/03">三月 2006</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02">二月 2006</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/01">一月 2006</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/12">十二月 2005</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/11">十一月 2005</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/10">十月 2005</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -123,7 +641,23 @@
       <ul>
         
           <li>
-            <a href="/2014/04/14/hello-world/">Hello World</a>
+            <a href="/2014/04/13/centos编译安装git/">Centos编译安装Git</a>
+          </li>
+        
+          <li>
+            <a href="/2013/10/24/ios固件更新到7-0-3/">ios固件更新到7.0.3</a>
+          </li>
+        
+          <li>
+            <a href="/2013/09/24/wordpress函数-add_theme_support/">WordPress函数 add_theme_support</a>
+          </li>
+        
+          <li>
+            <a href="/2013/09/22/wordpress-主题添加自定义背景/">Wordpress 主题添加自定义背景</a>
+          </li>
+        
+          <li>
+            <a href="/2013/09/22/uptime最长时间的机器/">Uptime最长时间的机器</a>
           </li>
         
       </ul>
@@ -152,6 +686,18 @@
   
 </nav>
     
+<script>
+  var disqus_shortname = 'bubutang';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 

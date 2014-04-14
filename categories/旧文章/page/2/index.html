@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Category: 旧文章 | 卜卜堂</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="og:type" content="blog">
+<meta name="og:title">
+<meta name="og:url" content="http://blog.bubutang.com/categories/旧文章/page/2/">
+<meta name="og:image">
+<meta name="og:site_name" content="卜卜堂">
+<meta name="og:description">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="卜卜堂" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">卜卜堂</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://blog.bubutang.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-pyfetion-0-2发布" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/12/13/pyfetion-0-2发布/" class="article-date">
+  <time datetime="2009-12-13T14:06:45.000Z" itemprop="datePublished">12月 13 2009</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/旧文章/">旧文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/12/13/pyfetion-0-2发布/">PyFetion 0.2发布</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PyFetion新版本发布，协议根据移动09.11.04的飞信版本：Fetion2008 3.5.2(安全加强版)</p>
+<p>更新内容包含：</p>
+<blockquote>
+<ol>
+<li>增加查看飞信好友是否隐身功能2.  增加登录时状态的选择[隐身 在线 忙碌 离开]3.  日志改用Python的logging模块4.  增加对好友状态改变的处理( 如上线等)5.  重写TCP方式中的底层通信函数6.  使用对列保存接收到的多余消息( 例如发短信时本来应该返回200 OK 却先来了个BN通知消息，以前这样会出错，现在底层会把BN消息放在队列中，返回200 OK)7.  修改了一些异常处理方式8.  增加登出，删除好友函数9.  改写get_contactlist函数，使用一个dict保存当前的好友列表10.  增加一个receive函数 做客户端的时候可以在一个线程中主调用该函数，所有的消息都会yield出来(请参考fetion.py)11.  修正向PC发送消息的命令，飞信新增加了一个CatMsg的命令12.  增加接收从最新版本PC端发送的消息功能;这个比较麻烦新版本飞信对每一个新会话使用fork出一个线程的方式;        &gt; John先给服务器说我要开个新会话，服务应答一个消息说，你去这个IP吧，带着这个密钥 于是John就连到了这个IP，并使用这个密钥登录，接着发一个包含Bob的uri的邀请命令; 服务器把这个通知(包含IP 密钥和邀请者John的uri)给Bob，Bob收到服务器的通知后也用同样的密钥登录该IP 这时John收到Bob进入会话的消息，他就开始正式发消息了13.  许多清理了修正14.  调整类的结构15.  改用MIT License    &gt; 16.  增加了一个CLI的飞信客户端 跨平台支持    <blockquote>17.  Fedora8 Python2.5。1测试;Windowx XP Python2.6.4测试;Win7 Python2.6.2测试18.  我忘记在这里列出来的  </li>
+</ol>
+</blockquote>
+<p>fetion.py一个CLI的飞信客户端</p>
+<p>   <blockquote>1.  多线程支持，同时收发消息2.  添加，删除，好友，判断好友是否隐身功能3.  占用资源少，我正写这博客的时候官方的飞信占我96.8M的内存4.  跨平台支持5.  扩展性好，加两行代码就可以实现从手机发命令关机等功能6.  其它我没发现的</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/" data-id="by29cx4xi0qs6bok" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-web服务器文件下载的奇怪问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/12/08/web服务器文件下载的奇怪问题/" class="article-date">
+  <time datetime="2009-12-08T07:47:37.000Z" itemprop="datePublished">12月 8 2009</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/旧文章/">旧文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/12/08/web服务器文件下载的奇怪问题/">web服务器文件下载的奇怪问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>不知道标题用什么好，用iis建立一个网站和apache建立一个网站，同时指向同一个文件夹，下载文件，在iis下完全下载完毕，但在apache就出现了奇怪的问题，文件中一部分不见了，然后把前面一部分复制到了后面，像下图那样：<br><a href="http://www.yupoo.com/photos/view?id=ff8080812558febf01256d3aae5132c0" title="来YUPOO看我的照片" target="_blank"><img src="http://pic.yupoo.com/xiao/4564188178bb/a3y7fcrl.jpg" alt="未标题-3"></a><br>在网上也找不到解决方法，唯一在<a href="http://bbs.blueidea.com/viewthread.php?tid=2953577" target="_blank">这里</a>找到相似的个案，试过重装apache ,但是还是不能解决。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2009/12/08/web服务器文件下载的奇怪问题/" data-id="rsmf721zjk84bvjo" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2009/12/08/web服务器文件下载的奇怪问题/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-尝试安装mt失败" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/11/27/尝试安装mt失败/" class="article-date">
+  <time datetime="2009-11-27T07:17:33.000Z" itemprop="datePublished">11月 27 2009</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/旧文章/">旧文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/11/27/尝试安装mt失败/">尝试安装MT失败</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>现在的空间支持CGI，正好尝试一下在MT(<a href="http://mediatemple.com" target="_blank">MediaTemple</a>)上装MT(<a href="http://movabletype.org/" target="_blank">MovableType</a>)，现在又SSH，下载很简单</p>
+<blockquote>
+<p>wget <a href="http://www.movabletype.org/downloads/stable/MTOS-4.32-en.zip" target="_blank">http://www.movabletype.org/downloads/stable/MTOS-4.32-en.zip</a>  </p>
+</blockquote>
+<p>速度很快，1.9M的下载速度解压缩，把mt目录复制到cgi-bin下面，把mt-static复制到网站根目录，然后打开mt-wizard.cgi配置安装，但是却提示</p>
+<blockquote>
+<p>Got an error: Base class package &quot;Class::Accessor::Fast&quot; is empty.  </p>
+</blockquote>
+<p>Google上也找不到相关问题，这次安装只好到这里结束。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2009/11/27/尝试安装mt失败/" data-id="nt5sb5l01ck33d90" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2009/11/27/尝试安装mt失败/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-感恩节8枚google-wave邀请派送" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/11/26/感恩节8枚google-wave邀请派送/" class="article-date">
+  <time datetime="2009-11-26T07:09:59.000Z" itemprop="datePublished">11月 26 2009</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/旧文章/">旧文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/11/26/感恩节8枚google-wave邀请派送/">感恩节8枚Google Wave邀请派送</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://wave.google.com/" target="_blank">Google Wave</a>邀请已经是白菜哪样了，到处都有，我的Google Wave账号里面也多了8个邀请的机会，像<a href="http://blog.bubutang.com/post/317.html">上次那样</a>，留言或者<a href="https://twitter.com/sarices" target="_blank">@sarices</a>也可以。</p>
+<p><strong>注意：邀请需要一些时间才能收到，有的几天，有的一个月，一切看人品。</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2009/11/26/感恩节8枚google-wave邀请派送/" data-id="12ebh2601p1kfw8x" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2009/11/26/感恩节8枚google-wave邀请派送/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-blog搬家到media-templemt" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/11/25/blog搬家到media-templemt/" class="article-date">
+  <time datetime="2009-11-25T11:45:03.000Z" itemprop="datePublished">11月 25 2009</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/旧文章/">旧文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/11/25/blog搬家到media-templemt/">Blog搬家到Media Temple(MT)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本来BLOG一直是放在<a href="https://twitter.com/dupola" target="_blank">@dupola</a>的空间上的，不过一直放着不给钱不好意思，所以索性自己租一个，看了好多家，最好选定了MT，参加了<a href="http://ooxx.me/" target="_blank">大猫</a>的发起的<a href="http://miao.in" target="_blank">合租</a>。</p>
+<p>空间配置如下（具体参照这里<a href="http://miao.in/detail" target="_blank">详情</a>）：</p>
+<ol>
+<li>1G空间</li>
+<li>60G/月流量</li>
+<li>2个域名捆绑  </li>
+</ol>
+<p>空间是 <a href="http://ooxx.me/mt" target="_blank">MediaTemple</a> 的 VPS 套餐<a href="http://mediatemple.net/webhosting/dv/" target="_blank">(dv) Dedicated-Virtual</a>，有米的可以自己租一个，分点空间给我。后台面板是 Plesk（英文） ，其实比较容易理解，没有特别难得英文单词。搬家就有点麻烦，原来的空间没有SSH，只能下载回来再上传，一开始不记得删除缓存文件，导致下载了很久，上传完毕才发现数据库由于域名过期不能进入，而且域名已经解析到新空间上面了。本来想把域名重新解析回去再用Wordpress备份一下数据，最好想到了个办法直接改Host文件，顺利备份数据，顺便把数据库编码也改了，改成UTF-8，还原数据就完成了。</p>
+<p>但是SSH一直进不去，看了MT的帮助，照着做了几次还是不行，域名和IP都试过了，可能是端口问题，最好咨询了大猫，确认是端口问题，换端口立即连接成功，这次搬家就到此结束。</p>
+<p>有兴趣合租的朋友可以到<a href="http://miao.in" target="_blank">庙</a>下<a href="http://miao.in/order" target="_blank">订单</a>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2009/11/25/blog搬家到media-templemt/" data-id="r4ccu0jel2xq315g" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2009/11/25/blog搬家到media-templemt/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-twitter-weekly-updates-for-2009-11-22" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/11/22/twitter-weekly-updates-for-2009-11-22/" class="article-date">
+  <time datetime="2009-11-22T12:00:00.000Z" itemprop="datePublished">11月 22 2009</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/旧文章/">旧文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/11/22/twitter-weekly-updates-for-2009-11-22/">Twitter Weekly Updates for 2009-11-22</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>[GReader Share]北上广三地买房故事 - <a href="http://j.mp/5EMyaS" target="_blank">http://j.mp/5EMyaS</a> <a href="http://twitter.com/sarices/statuses/5962701108" target="_blank">#</a></li>
+<li>[GReader Share]地产新首富许家印的创业史 - <a href="http://j.mp/8EzCkT" target="_blank">http://j.mp/8EzCkT</a> <a href="http://twitter.com/sarices/statuses/5962622523" target="_blank">#</a></li>
+<li>早上好，今天天气真好 <a href="http://twitter.com/sarices/statuses/5937553585" target="_blank">#</a></li>
+<li>结婚真的很累，但很幸福，今天过得很快 <a href="http://twitter.com/sarices/statuses/5922260523" target="_blank">#</a></li>
+<li>困啊，上班也没这么早起来，估计今天会很忙 <a href="http://twitter.com/sarices/statuses/5904137347" target="_blank">#</a></li>
+<li>明天不要太冷啊~~只能穿两件衣服啊 <a href="http://twitter.com/sarices/statuses/5891227506" target="_blank">#</a></li>
+<li>洗完澡上床睡觉最好 <a href="http://twitter.com/sarices/statuses/5891209957" target="_blank">#</a></li>
+<li>我一般放在MODEL里 RT @Aether: 请教一下各位，数据的验证应该放在Controller里面做完还是应该放在Model里面做？ <a href="http://twitter.com/sarices/statuses/5886264208" target="_blank">#</a></li>
+<li>激动时刻，下班了~~下周见~ <a href="http://twitter.com/sarices/statuses/5885350307" target="_blank">#</a></li>
+<li>RT @dzkc: @<a href="http://twitter.com/sarices" target="_blank">sarices</a> 不如寻找中国的，好多啊，呵呵。//中山和中国两个概念啊~~ #<a href="http://search.twitter.com/search?q=%23zhongshan" target="_blank">zhongshan</a> <a href="http://twitter.com/sarices/statuses/5885036021" target="_blank">#</a></li>
+<li>RT @amanda_red123: RT @<a href="http://twitter.com/sarices" target="_blank">sarices</a> [GReader Share]我在南京成功的扶起了一位摔倒的老太！ - //换个地址<a href="http://docs.google.com/View?id=dc3nnnvb_1gkgxkfgp" target="_blank">http://docs.google.com/View?id=dc3nnnvb_1gkgxkfgp</a> <a href="http://twitter.com/sarices/statuses/5884989614" target="_blank">#</a></li>
+<li>有几个了<a href="https://twitter.com/sarices/zhongshan" target="_blank">https://twitter.com/sarices/zhongshan</a> RT @amanda_red123: 目前只得一个..RT @<a href="http://twitter.com/sarices" target="_blank">sarices</a> 好吧，继续寻找中山的推友 #<a href="http://search.twitter.com/search?q=%23zhongshan" target="_blank">zhongshan</a> <a href="http://twitter.com/sarices/statuses/5884824677" target="_blank">#</a></li>
+<li>只是提供消息，不确定是否真实？RT @amanda_red123: 真的假的? 我还想要,可以送我两个吗,我想邀请我朋友. RT @<a href="http://twitter.com/sarices" target="_blank">sarices</a> 30个google wave邀请 <a href="http://www.douban.com/group/topic/873.." target="_blank">http://www.douban.com/group/topic/873..</a>. #<a href="http://search.twitter.com/search?q=%23wave" target="_blank">wave</a> <a href="http://twitter.com/sarices/statuses/5884819812" target="_blank">#</a></li>
+<li>RT @Fenng: RT @number5: RT @buchimifan: RT @lianyue: 中国可以说不：新疆不能上网，四川不能追究豆腐渣校舍，南京不能扶老太太，冯正虎不能回国。 <a href="http://twitter.com/sarices/statuses/5884533208" target="_blank">#</a></li>
+<li>RT @UncleClassic: 串出的路过～RT @twiterjj: 我自己已经排除，谢谢！RT @sarices: 好吧，继续寻找中山的推友~#<a href="http://search.twitter.com/search?q=%23zhongshan" target="_blank">zhongshan</a> //继续RT <a href="http://twitter.com/sarices/statuses/5884223663" target="_blank">#</a></li>
+<li>30个google wave邀请<a href="http://www.douban.com/group/topic/8731777/" target="_blank">http://www.douban.com/group/topic/8731777/</a> #<a href="http://search.twitter.com/search?q=%23wave" target="_blank">wave</a> <a href="http://twitter.com/sarices/statuses/5884158439" target="_blank">#</a></li>
+<li>“搵食艰难” RT @dupola: RT: @wangpei: RT @newsinchina: 新疆的淘宝店主为了生计为了上网，开车狂奔千里之外的甘肃敦煌 <a href="http://kl.am/4YYG" target="_blank">http://kl.am/4YYG</a> 老乡们都来看看! //一个多么棒的纪录片题材啊！ 转 @<a href="http://twitter.com/xiaoqingchen" target="_blank">xiaoqingchen</a> <a href="http://twitter.com/sarices/statuses/5884136789" target="_blank">#</a></li>
+<li>好吧，继续寻找中山的推友~#<a href="http://search.twitter.com/search?q=%23zhongshan" target="_blank">zhongshan</a> <a href="http://twitter.com/sarices/statuses/5884062128" target="_blank">#</a></li>
+<li>RT @twiterjj: 直接问！RT @sarices: 有没有方法找到某一个地方的推友呢？//。。。没人看到这条消息怎么办？ <a href="http://twitter.com/sarices/statuses/5883955456" target="_blank">#</a></li>
+<li>有没有方法找到某一个地方的推友呢？ <a href="http://twitter.com/sarices/statuses/5883897630" target="_blank">#</a></li>
+<li><h1 id="<a_href="http://search-twitter-com/search?q=%23douban" target="_blank">douban</a>_的otho-douban-com二级域名还是不能访问_<a_href="http://twitter-com/sarices/statuses/5883271359" target="_blank">#</a>"><a href="http://search.twitter.com/search?q=%23douban" target="_blank">douban</a> 的otho.douban.com二级域名还是不能访问 <a href="http://twitter.com/sarices/statuses/5883271359" target="_blank">#</a></h1>
+</li>
+<li>豆瓣放的一个二级域名不能访问otho.douban.com <a href="http://twitter.com/sarices/statuses/5883112297" target="_blank">#</a></li>
+<li>这里突然访问豆瓣超慢 <a href="http://twitter.com/sarices/statuses/5883077298" target="_blank">#</a></li>
+<li>[GReader Share]我在南京成功的扶起了一位摔倒的老太！ - <a href="http://blog.sina.com.cn/s/blog_5e9f35ea0100frgt.html" target="_blank">http://blog.sina.com.cn/s/blog_5e9f35ea0100frgt.html</a> <a href="http://twitter.com/sarices/statuses/5881968808" target="_blank">#</a></li>
+<li>RT @ndzk: 南都周刊官网域名nbweekly.com暂时被停。请访问 <a href="http://nbweekly.oeeee.com" target="_blank">http://nbweekly.oeeee.com</a> 来访问。不便之处敬请谅解。 <a href="http://twitter.com/sarices/statuses/5879496146" target="_blank">#</a></li>
+<li>今天没带饭，要开车回去，在这么冷的天气，开摩托是一件很悲惨的事情~ <a href="http://twitter.com/sarices/statuses/5879445188" target="_blank">#</a></li>
+<li>今天太阳出来晚了 <a href="http://twitter.com/sarices/statuses/5878750032" target="_blank">#</a></li>
+<li>@<a href="http://twitter.com/ndzk" target="_blank">ndzk</a> 南都网站挂了，还是别有原因 <a href="http://twitter.com/sarices/statuses/5877948996" target="_blank">#</a></li>
+<li>[GReader Share]宅急送之后陈平的新生意 - <a href="http://j.mp/2zpxmL" target="_blank">http://j.mp/2zpxmL</a> <a href="http://twitter.com/sarices/statuses/5877780002" target="_blank">#</a></li>
+<li>RT @s5s5: Chrome OS只支持web应用，这是广大前端开发者的福音啊//应该是WEB开发者吧 <a href="http://twitter.com/sarices/statuses/5877426077" target="_blank">#</a></li>
+<li>老板回来了，大家都突然很努力工作 <a href="http://twitter.com/sarices/statuses/5876781617" target="_blank">#</a></li>
+<li>[GReader Share]BT下载的未来 - <a href="http://j.mp/3QuZ0n" target="_blank">http://j.mp/3QuZ0n</a> <a href="http://twitter.com/sarices/statuses/5860404734" target="_blank">#</a></li>
+<li>只能说，汗！RT @diggdigest: 啊！geek：老爸3年都坚持只对儿子说Klingon(外星)语言 <a href="http://bit.ly/uG0PM" target="_blank">http://bit.ly/uG0PM</a> <a href="http://twitter.com/sarices/statuses/5860161322" target="_blank">#</a></li>
+<li>客串加入了笑点很奇怪！小组 <a href="http://ff.im/-bGNCx" target="_blank">http://ff.im/-bGNCx</a> <a href="http://twitter.com/sarices/statuses/5853055526" target="_blank">#</a></li>
+<li>有种快感冒的感觉，下班还是买点感冒药靠谱 <a href="http://twitter.com/sarices/statuses/5851611957" target="_blank">#</a></li>
+<li>[GReader Share]好用的命令行工具 - <a href="http://j.mp/2gt5g2" target="_blank">http://j.mp/2gt5g2</a> <a href="http://twitter.com/sarices/statuses/5847806884" target="_blank">#</a></li>
+<li>每次防空警报到找不到警报的喇叭 <a href="http://twitter.com/sarices/statuses/5845152504" target="_blank">#</a></li>
+<li>防空警报试鸣吓到小朋友了 <a href="http://twitter.com/sarices/statuses/5845117244" target="_blank">#</a></li>
+<li>今天鼻炎没发作~:) <a href="http://twitter.com/sarices/statuses/5844142109" target="_blank">#</a></li>
+<li>[GReader Share]组图：百年伟大新闻摄影 - <a href="http://j.mp/3yLYbt" target="_blank">http://j.mp/3yLYbt</a> <a href="http://twitter.com/sarices/statuses/5843843837" target="_blank">#</a></li>
+<li>官方的 #<a href="http://search.twitter.com/search?q=%23RT" target="_blank">RT</a> 不习惯 <a href="http://twitter.com/sarices/statuses/5843790589" target="_blank">#</a></li>
+<li>冷啊，都不想起床了 <a href="http://twitter.com/sarices/statuses/5842363946" target="_blank">#</a></li>
+<li><a href="http://img.ly/cLf" target="_blank">http://img.ly/cLf</a> - 金睛火眼 <a href="http://twitter.com/sarices/statuses/5830712345" target="_blank">#</a></li>
+<li>RT @sina_app_engine: Sina App Engine的官方twitter从今天开始开推，暂时由 @<a href="http://twitter.com/gowers" target="_blank">gowers</a> 维护。这里将公布SAE的开发进展，各位若有关于SAE的疑问也可以在这里咨询～ <a href="http://twitter.com/sarices/statuses/5830453827" target="_blank">#</a></li>
+<li>空气很干燥，不想把头放在被子外面，晚安，推特 <a href="http://twitter.com/sarices/statuses/5830393483" target="_blank">#</a></li>
+<li>客串关注恰克与非门 <a href="http://ff.im/-bDeIN" target="_blank">http://ff.im/-bDeIN</a> <a href="http://twitter.com/sarices/statuses/5820752630" target="_blank">#</a></li>
+<li>RT @tuite_tips: 再次提醒，twitter 将在下午3点，也就是15分钟后开始技术维护，请大家做好准备 #<a href="http://search.twitter.com/search?q=%23yyz" target="_blank">yyz</a> <a href="http://twitter.com/sarices/statuses/5820242608" target="_blank">#</a></li>
+<li>最近太懒了，老板不在，不想工作，看到手下的同事工作这么认真，真有点惭愧 <a href="http://twitter.com/sarices/statuses/5820106104" target="_blank">#</a></li>
+<li>最近中午都不想回家吃饭了，是在太冷了，特别是我这种开摩托的~ <a href="http://twitter.com/sarices/statuses/5817111237" target="_blank">#</a></li>
+<li>[GReader Share]奥巴马：自由的网络是力量之源 - <a href="http://j.mp/2mCDCH" target="_blank">http://j.mp/2mCDCH</a> <a href="http://twitter.com/sarices/statuses/5813196719" target="_blank">#</a></li>
+<li>好多人结婚啊，今天来到又收到红色炸弹 <a href="http://twitter.com/sarices/statuses/5812786889" target="_blank">#</a></li>
+<li>依然是很冷~~ <a href="http://twitter.com/sarices/statuses/5798371133" target="_blank">#</a></li>
+<li>google wave 在firefox下比较流畅，在chrome下有bug，而且没在firefox下流畅 <a href="http://twitter.com/sarices/statuses/5793251875" target="_blank">#</a></li>
+<li>好冷啊，幸好我用的是笔记本，可以盖着被子上网 <a href="http://twitter.com/sarices/statuses/5793130474" target="_blank">#</a></li>
+<li>客串加入了中山音乐堂小组 <a href="http://ff.im/-bAezO" target="_blank">http://ff.im/-bAezO</a> <a href="http://twitter.com/sarices/statuses/5792227117" target="_blank">#</a></li>
+<li>太冷了，今晚决定留在家里~~ <a href="http://twitter.com/sarices/statuses/5792041454" target="_blank">#</a></li>
+<li>RT @amanda_red123: 以前公司的老大突然打电话叫我回去做，究竟要不要回去？说实话不太想，但，在这里也做得不开心。唉！！！！！！！！！！！！！！！！！！！！//不吃回头草 <a href="http://twitter.com/sarices/statuses/5791572651" target="_blank">#</a></li>
+<li>今天又N封Google Friend的提醒，原来有人提供了Office 2010 Beta都下载 <a href="http://www.cnbeta.com/articles/97962.htm" target="_blank">http://www.cnbeta.com/articles/97962.htm</a> <a href="http://twitter.com/sarices/statuses/5788684696" target="_blank">#</a></li>
+<li>冷啊，手指都快打不了字了 <a href="http://twitter.com/sarices/statuses/5788175666" target="_blank">#</a></li>
+<li>Google翻译自作聪明啊，做了个ajax即时取得内容，即时翻译，但是我打开输入法输入中文啊，还没输入就把字母翻译了~汗~ <a href="http://twitter.com/sarices/statuses/5786159400" target="_blank">#</a></li>
+<li>好冷，还以为今天出太阳会暖一点，早知道穿件羽绒~ <a href="http://twitter.com/sarices/statuses/5785061933" target="_blank">#</a></li>
+<li>快乐的小狗<a href="http://www.xitek.cn/forum/200708/471/47178/47178_1186240376.jpg" target="_blank">http://www.xitek.cn/forum/200708/471/47178/47178_1186240376.jpg</a> <a href="http://twitter.com/sarices/statuses/5785004253" target="_blank">#</a></li>
+<li>做了一个中山推油list <a href="https://twitter.com/sarices/zhongshan" target="_blank">https://twitter.com/sarices/zhongshan</a> <a href="http://twitter.com/sarices/statuses/5784993769" target="_blank">#</a></li>
+<li>RT @amanda_red123: 呜呜,不会吧,我看你才发出信息没多久…RT @<a href="http://twitter.com/sarices" target="_blank">sarices</a> @<a href="http://twitter.com/amanda_red123" target="_blank">amanda_red123</a> 对不起，已经发送完毕了!///昨天已经发了 <a href="http://twitter.com/sarices/statuses/5782962227" target="_blank">#</a></li>
+<li>@<a href="http://twitter.com/amanda_red123" target="_blank">amanda_red123</a> 对不起，已经发送完毕了! <a href="http://twitter.com/amanda_red123/statuses/5782643076" target="_blank">in reply to amanda_red123</a> <a href="http://twitter.com/sarices/statuses/5782696870" target="_blank">#</a></li>
+<li>Twitter Weekly Updates for 2009-11-15 <a href="http://bit.ly/14lzQT" target="_blank">http://bit.ly/14lzQT</a> <a href="http://twitter.com/sarices/statuses/5782623276" target="_blank">#</a></li>
+<li>Google Wave 邀请 4 枚 <a href="http://bit.ly/8mxaY" target="_blank">http://bit.ly/8mxaY</a> <a href="http://twitter.com/sarices/statuses/5782622921" target="_blank">#</a></li>
+<li>RT @amanda_red123: 你好啊,中山滴推油,在豆瓣上看到你的@<a href="http://twitter.com/sarices" target="_blank">sarices</a> //好冷~~ <a href="http://twitter.com/sarices/statuses/5764326141" target="_blank">#</a></li>
+<li>写给中山的 “中山在豆瓣上被广为流传评价为“一个波澜不惊养老等死的城市”” <a href="http://user.qzone.qq.com/341260726/blog/1258135011" target="_blank">http://user.qzone.qq.com/341260726/blog/1258135011</a> <a href="http://twitter.com/sarices/statuses/5764183346" target="_blank">#</a></li>
+<li>RT @MasterZider: @<a href="http://twitter.com/sarices" target="_blank">sarices</a> 能否发送一个？谢谢 shizhiyuan1992#gmail.com //已发 <a href="http://twitter.com/sarices/statuses/5764086920" target="_blank">#</a></li>
+<li>还剩下两枚 #<a href="http://search.twitter.com/search?q=%23wave" target="_blank">wave</a> 邀请 ~~ <a href="http://twitter.com/sarices/statuses/5764014561" target="_blank">#</a></li>
+<li>RT @riceye816: @<a href="http://twitter.com/sarices" target="_blank">sarices</a> 你好，可以给我一个Google wave的邀请吗？谢谢！sarahsong75@gmail.com ///已发 <a href="http://twitter.com/sarices/statuses/5764003221" target="_blank">#</a></li>
+<li>又冷又下雨 <a href="http://twitter.com/sarices/statuses/5761978545" target="_blank">#</a></li>
+<li>东东东冻~ <a href="http://ff.im/-bwXtC" target="_blank">http://ff.im/-bwXtC</a> <a href="http://twitter.com/sarices/statuses/5761676842" target="_blank">#</a></li>
+<li>blog留言的提交地址出错了~~怪不得N年没人留言了 <a href="http://twitter.com/sarices/statuses/5760202767" target="_blank">#</a></li>
+<li>@<a href="http://twitter.com/clientor" target="_blank">clientor</a> 汗~~确实有问题，还是发到我邮箱吧 <a href="http://twitter.com/clientor/statuses/5760134782" target="_blank">in reply to clientor</a> <a href="http://twitter.com/sarices/statuses/5760179912" target="_blank">#</a></li>
+<li>估计是太久没写blog了，有4枚Google Wave邀请也没人要 <a href="http://blog.bubutang.com/post/317.html">http://blog.bubutang.com/post/317.html</a> <a href="http://twitter.com/sarices/statuses/5760057844" target="_blank">#</a></li>
+<li>RT @Aether: 网易关于防火墙的文章已经从新闻首页拿掉。//内页都不见了 <a href="http://twitter.com/sarices/statuses/5758803365" target="_blank">#</a></li>
+<li>直播地址<a href="http://www.whitehouse.gov/live" target="_blank">http://www.whitehouse.gov/live</a> <a href="http://twitter.com/sarices/statuses/5758410901" target="_blank">#</a></li>
+</ul>
+<p>Powered by <a href="http://alexking.org/projects/wordpress" target="_blank">Twitter Tools</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2009/11/22/twitter-weekly-updates-for-2009-11-22/" data-id="7pte0n9nd98uuvs0" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2009/11/22/twitter-weekly-updates-for-2009-11-22/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-google-wave-邀请-4-枚" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/11/16/google-wave-邀请-4-枚/" class="article-date">
+  <time datetime="2009-11-16T03:36:25.000Z" itemprop="datePublished">11月 16 2009</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/旧文章/">旧文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/11/16/google-wave-邀请-4-枚/">Google Wave 邀请 4 枚</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><del datetime="2009-11-17T01:16:10+00:00">需要的请留言，先到先得！<br>汗~经过@clientor 提醒，确实留言有问题，索要要请还是发到我邮箱吧sarices@gmail.com</del></p>
+<p><strong>已经发送完毕，等待下一次！</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2009/11/16/google-wave-邀请-4-枚/" data-id="lb65ty5agcxin8l7" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2009/11/16/google-wave-邀请-4-枚/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-twitter-weekly-updates-for-2009-11-15" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/11/15/twitter-weekly-updates-for-2009-11-15/" class="article-date">
+  <time datetime="2009-11-15T12:00:00.000Z" itemprop="datePublished">11月 15 2009</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/旧文章/">旧文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/11/15/twitter-weekly-updates-for-2009-11-15/">Twitter Weekly Updates for 2009-11-15</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>[GReader Share]万恶的美帝国主义的房价 - <a href="http://j.mp/3Ib0A6" target="_blank">http://j.mp/3Ib0A6</a> <a href="http://twitter.com/sarices/statuses/5755687131" target="_blank">#</a></li>
+<li>今天上Gmail经常崩溃 #<a href="http://search.twitter.com/search?q=%23chromium" target="_blank">chromium</a> <a href="http://twitter.com/sarices/statuses/5755193590" target="_blank">#</a></li>
+<li><h1 id="<a_href="http://search-twitter-com/search?q=%23SGU" target="_blank">SGU</a>_挺不错，比起#<a_href="http://search-twitter-com/search?q=%23SGA" target="_blank">SGA</a>_好多了_<a_href="http://twitter-com/sarices/statuses/5739994346" target="_blank">#</a>"><a href="http://search.twitter.com/search?q=%23SGU" target="_blank">SGU</a> 挺不错，比起#<a href="http://search.twitter.com/search?q=%23SGA" target="_blank">SGA</a> 好多了 <a href="http://twitter.com/sarices/statuses/5739994346" target="_blank">#</a></h1>
+</li>
+<li><a href="http://twitpic.com/pmtfl" target="_blank">http://twitpic.com/pmtfl</a> - @<a href="http://twitter.com/lookon" target="_blank">lookon</a> 出错了 <a href="http://twitter.com/sarices/statuses/5737994098" target="_blank">#</a></li>
+<li>@<a href="http://twitter.com/lookon" target="_blank">lookon</a> 出错了~~ <a href="http://twitter.com/sarices/statuses/5737904542" target="_blank">#</a></li>
+<li>客串加入了Google Wave小组 <a href="http://ff.im/-bnXPP" target="_blank">http://ff.im/-bnXPP</a> <a href="http://twitter.com/sarices/statuses/5669214446" target="_blank">#</a></li>
+<li>客串加入了爱google，爱wave小组 <a href="http://ff.im/-bnXPN" target="_blank">http://ff.im/-bnXPN</a> <a href="http://twitter.com/sarices/statuses/5669214378" target="_blank">#</a></li>
+<li>冷~~ <a href="http://twitter.com/sarices/statuses/5665846398" target="_blank">#</a></li>
+<li>刚刚看完一天的推，睡觉！ <a href="http://twitter.com/sarices/statuses/5653327601" target="_blank">#</a></li>
+<li>[GReader Share]jQuery可视化开发工具IxEdit - <a href="http://j.mp/2cmBkC" target="_blank">http://j.mp/2cmBkC</a> <a href="http://twitter.com/sarices/statuses/5652444537" target="_blank">#</a></li>
+<li>[GReader Share]KRUMO美化print_r()和var_dump() - <a href="http://j.mp/2pGuuZ" target="_blank">http://j.mp/2pGuuZ</a> <a href="http://twitter.com/sarices/statuses/5652439375" target="_blank">#</a></li>
+<li>朋友结婚，做兄弟，光买衣服现在已经用了1K了，还有裤子和鞋没买~~ <a href="http://twitter.com/sarices/statuses/5652301571" target="_blank">#</a></li>
+<li>如果不是Firefox有firebug，早就转到chrome下了 <a href="http://twitter.com/sarices/statuses/5644944885" target="_blank">#</a></li>
+<li>查询大量数据千万不要用in~~ <a href="http://twitter.com/sarices/statuses/5644836576" target="_blank">#</a></li>
+<li>RT @lookon: 我的 twitter.com 访问结果…很奇怪 <a href="http://flic.kr/p/7f4uNS" target="_blank">http://flic.kr/p/7f4uNS</a> ///这是因为使用了autoproxy的pac自动脚本之后才有得，用修改host的方法不会有此页面 <a href="http://twitter.com/sarices/statuses/5643595556" target="_blank">#</a></li>
+<li>推荐阅读：《DIY你的咖啡泡沫》 - <a href="http://bit.ly/26PBzp" target="_blank">http://bit.ly/26PBzp</a> <a href="http://twitter.com/sarices/statuses/5643290781" target="_blank">#</a></li>
+<li>现实中的第九区 <a href="http://nishuang.de/archives/3221" target="_blank">http://nishuang.de/archives/3221</a> <a href="http://twitter.com/sarices/statuses/5642755949" target="_blank">#</a></li>
+<li>[GReader Share]典型的 SQL 注入过程 - <a href="http://j.mp/1fFM2v" target="_blank">http://j.mp/1fFM2v</a> <a href="http://twitter.com/sarices/statuses/5642596009" target="_blank">#</a></li>
+<li>[GReader Share]新增国内mysql下载镜像 - <a href="http://j.mp/3SvzqG" target="_blank">http://j.mp/3SvzqG</a> <a href="http://twitter.com/sarices/statuses/5639993794" target="_blank">#</a></li>
+<li>RT @herock: 现在要在blog侧边栏输出最近几条tweet，有什么好的解决方案么？//试试我的方法<a href="http://blog.bubutang.com/post/314.html">http://blog.bubutang.com/post/314.html</a> <a href="http://twitter.com/sarices/statuses/5623015309" target="_blank">#</a></li>
+<li>RT @guao: 谷安更新: 如今流行多启动？除了双系统，还有三系统！ <a href="http://guao.cc/Hy1" target="_blank">http://guao.cc/Hy1</a> <a href="http://twitter.com/sarices/statuses/5622719984" target="_blank">#</a></li>
+<li>@<a href="http://twitter.com/lookon" target="_blank">lookon</a> <a href="mailto:sarices@gmail.com">sarices@gmail.com</a> <a href="http://twitter.com/lookon/statuses/5606939038" target="_blank">in reply to lookon</a> <a href="http://twitter.com/sarices/statuses/5607174738" target="_blank">#</a></li>
+<li>冬天到了小心家里的猫猫狗狗，随时会变成别人的盘中餐，昨天我舅舅家里的狗被毒死了，而且刚好有了BB，养了11年了，每次去他家都会出来迎接我。 <a href="http://twitter.com/sarices/statuses/5606188465" target="_blank">#</a></li>
+<li>1111 <a href="http://ff.im/-bh6pj" target="_blank">http://ff.im/-bh6pj</a> <a href="http://twitter.com/sarices/statuses/5605428322" target="_blank">#</a></li>
+<li>RT @lookon: RT @<a href="http://twitter.com/junyu" target="_blank">junyu</a> 由 @<a href="http://twitter.com/JJYY" target="_blank">JJYY</a> 和我一同设计的 Google 音乐新版播放器已经上线, 欢迎各位新老用户试用并反馈意见, 欢迎各位设计界同行批评: <a href="http://music.g.cn" target="_blank">http://music.g.cn</a> //竟然不支持GOOGLE账号<a href="http://is.gd/4RQW7" target="_blank">http://is.gd/4RQW7</a> <a href="http://twitter.com/sarices/statuses/5592831670" target="_blank">#</a></li>
+<li>[GReader Share]doubleTwist: 适用于任何多媒体设备的 iTunes - <a href="http://j.mp/3bIrBW" target="_blank">http://j.mp/3bIrBW</a> <a href="http://twitter.com/sarices/statuses/5589257133" target="_blank">#</a></li>
+<li>今天太热了，应该穿短袖衣服 <a href="http://twitter.com/sarices/statuses/5583119533" target="_blank">#</a></li>
+<li>cnbeta的图片做了防盗链，pipes抓取过来的都不能显示 <a href="http://twitter.com/sarices/statuses/5582624794" target="_blank">#</a></li>
+<li>cnbeta好像做了图片防盗链 <a href="http://twitter.com/sarices/statuses/5576708167" target="_blank">#</a></li>
+<li>cnbeta 全文输出测试中<a href="http://feed.feedsky.com/cnbeta_full_text" target="_blank">http://feed.feedsky.com/cnbeta_full_text</a> <a href="http://twitter.com/sarices/statuses/5576682004" target="_blank">#</a></li>
+<li>Twitter Weekly Updates for 2009-11-08 <a href="http://bit.ly/3M1iMt" target="_blank">http://bit.ly/3M1iMt</a> <a href="http://twitter.com/sarices/statuses/5558136103" target="_blank">#</a></li>
+</ul>
+<p>Powered by <a href="http://alexking.org/projects/wordpress" target="_blank">Twitter Tools</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2009/11/15/twitter-weekly-updates-for-2009-11-15/" data-id="xc64uzgnvplsjxua" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2009/11/15/twitter-weekly-updates-for-2009-11-15/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-twitter-weekly-updates-for-2009-11-08" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/11/08/twitter-weekly-updates-for-2009-11-08/" class="article-date">
+  <time datetime="2009-11-08T12:00:00.000Z" itemprop="datePublished">11月 8 2009</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/旧文章/">旧文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/11/08/twitter-weekly-updates-for-2009-11-08/">Twitter Weekly Updates for 2009-11-08</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>sina的app engine，支持PHP，MYSQL，需要邀请，谁有？<a href="http://sae.sina.com.cn/" target="_blank">http://sae.sina.com.cn/</a> <a href="http://twitter.com/sarices/statuses/5547159447" target="_blank">#</a></li>
+<li>[GReader Share]关于唐家岭 - <a href="http://j.mp/3bzam8" target="_blank">http://j.mp/3bzam8</a> <a href="http://twitter.com/sarices/statuses/5545969540" target="_blank">#</a></li>
+<li>标准版三国杀有点烦 <a href="http://twitter.com/sarices/statuses/5507405420" target="_blank">#</a></li>
+<li>未被封的python下载点 <a href="http://www.python.org/ftp/python/" target="_blank">http://www.python.org/ftp/python/</a> <a href="http://twitter.com/sarices/statuses/5472103346" target="_blank">#</a></li>
+<li>未被封的python下载点 <a href="http://twitter.com/sarices/statuses/5471466443" target="_blank">#</a></li>
+<li>新蛋某商品上写着“庆生8周年，全月追杀“阿东”。“ <a href="http://twitter.com/sarices/statuses/5449054692" target="_blank">#</a></li>
+<li>python/php/asp <a href="http://ff.im/-b0Tk2" target="_blank">http://ff.im/-b0Tk2</a> <a href="http://twitter.com/sarices/statuses/5444916982" target="_blank">#</a></li>
+<li>不许联想<a href="http://bit.ly/3aZis1" target="_blank">http://bit.ly/3aZis1</a> <a href="http://twitter.com/sarices/statuses/5444333789" target="_blank">#</a></li>
+<li>[GReader Share]甲流与普通流感的区别 - <a href="http://j.mp/4j3qyK" target="_blank">http://j.mp/4j3qyK</a> <a href="http://twitter.com/sarices/statuses/5442997340" target="_blank">#</a></li>
+<li>[GReader Share]日本设计见闻录(上) - <a href="http://j.mp/37mmRK" target="_blank">http://j.mp/37mmRK</a> <a href="http://twitter.com/sarices/statuses/5442780783" target="_blank">#</a></li>
+<li>RT @sidekickick: 給鼻敏感的朋友看~~~ (我見好多人這兩天好辛苦, 希望幫到忙) 在plurk 看到的: &quot;感冒及過敏性鼻炎的預防方法&quot; <a href="http://bit.ly/3Tmmnm" target="_blank">http://bit.ly/3Tmmnm</a> <a href="http://twitter.com/sarices/statuses/5416022740" target="_blank">#</a></li>
+<li>[GReader Share]导游克里维·尤里查终于被西德政府买走 - <a href="http://j.mp/1bzTY2" target="_blank">http://j.mp/1bzTY2</a> <a href="http://twitter.com/sarices/statuses/5389268324" target="_blank">#</a></li>
+<li>[GReader Share]uuRadio – 网络收音机[侧边栏小工具] | 小众软件 &gt; 系统工具 - <a href="http://j.mp/3wCkcd" target="_blank">http://j.mp/3wCkcd</a> <a href="http://twitter.com/sarices/statuses/5388728260" target="_blank">#</a></li>
+<li>Twitter Weekly Updates for 2009-11-01 <a href="http://bit.ly/3eY9BP" target="_blank">http://bit.ly/3eY9BP</a> <a href="http://twitter.com/sarices/statuses/5357138274" target="_blank">#</a></li>
+</ul>
+<p>Powered by <a href="http://alexking.org/projects/wordpress" target="_blank">Twitter Tools</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2009/11/08/twitter-weekly-updates-for-2009-11-08/" data-id="02n0vbt82ctyulwz" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2009/11/08/twitter-weekly-updates-for-2009-11-08/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-twitter-weekly-updates-for-2009-11-01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2009/11/01/twitter-weekly-updates-for-2009-11-01/" class="article-date">
+  <time datetime="2009-11-01T12:00:00.000Z" itemprop="datePublished">11月 1 2009</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/旧文章/">旧文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2009/11/01/twitter-weekly-updates-for-2009-11-01/">Twitter Weekly Updates for 2009-11-01</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>域名续好了，还没生效 <a href="http://twitter.com/sarices/statuses/5354275223" target="_blank">#</a></li>
+<li>[GReader Share]中文语音搜索，让您说之即得 - <a href="http://j.mp/1durMl" target="_blank">http://j.mp/1durMl</a> <a href="http://twitter.com/sarices/statuses/5353209358" target="_blank">#</a></li>
+<li>域名忘了续费了 <a href="http://twitter.com/sarices/statuses/5352813400" target="_blank">#</a></li>
+<li><a href="http://twitpic.com/nvap4" target="_blank">http://twitpic.com/nvap4</a> - 广州也开始冷了，不知这只猫猫过得如何，今天在中山纪念堂里面遇见这只猫猫，很æ <a href="http://twitter.com/sarices/statuses/5339394878" target="_blank">#</a></li>
+<li>把新的货拿到IDEAL，关门吃了点东西，终于到家，洗澡，现在才安定下来，推一下 <a href="http://twitter.com/sarices/statuses/5338720736" target="_blank">#</a></li>
+<li>每次在广州都是走路居多，在中山出门总是开车 <a href="http://twitter.com/sarices/statuses/5336196112" target="_blank">#</a></li>
+<li>正在广州回中山的路上，等了一个小时才上车 <a href="http://twitter.com/sarices/statuses/5335722330" target="_blank">#</a></li>
+<li>原来SGU已经开播了 <a href="http://www.verycd.com/topics/2772144/" target="_blank">http://www.verycd.com/topics/2772144/</a> <a href="http://twitter.com/sarices/statuses/5308900443" target="_blank">#</a></li>
+<li><a href="http://img.ly/9MK" target="_blank">http://img.ly/9MK</a> - 你最近很囧吗？奥鹏教育 <a href="http://twitter.com/sarices/statuses/5286572180" target="_blank">#</a></li>
+<li>空调很大，不过我今天有备而来，一上车就穿了件长袖 <a href="http://twitter.com/sarices/statuses/5286474455" target="_blank">#</a></li>
+<li>又看见不让位给老人家的人，道德缺失啊 <a href="http://twitter.com/sarices/statuses/5286180111" target="_blank">#</a></li>
+<li>进了地铁，很多人，可能由于交易会关系 <a href="http://twitter.com/sarices/statuses/5286069477" target="_blank">#</a></li>
+<li>终于离开了交易会 <a href="http://twitter.com/sarices/statuses/5285925564" target="_blank">#</a></li>
+<li>车塞得这么厉害竟然没交警维持秩序，但看到城管的身影 <a href="http://twitter.com/sarices/statuses/5285903033" target="_blank">#</a></li>
+<li>又有展会了，大塞车，新港路又是手推车的天下 <a href="http://twitter.com/sarices/statuses/5285820747" target="_blank">#</a></li>
+<li>有时候很想去旅行，但想起手头上的一堆债务，唉… <a href="http://twitter.com/sarices/statuses/5285611367" target="_blank">#</a></li>
+<li>肚子饿的时候脑袋很迟钝 <a href="http://twitter.com/sarices/statuses/5285566353" target="_blank">#</a></li>
+<li>肚子有点饿，今天肚子不太舒服 <a href="http://twitter.com/sarices/statuses/5284868531" target="_blank">#</a></li>
+<li>美女总是不坐在我身边 <a href="http://twitter.com/sarices/statuses/5284750397" target="_blank">#</a></li>
+<li>很不喜欢大巴有多个点上车，总是把时间耽误了 <a href="http://twitter.com/sarices/statuses/5284726070" target="_blank">#</a></li>
+<li>下班了，等会上广州~ <a href="http://twitter.com/sarices/statuses/5283657389" target="_blank">#</a></li>
+<li>[GReader Share]开心网省份、城市、学校数据库版 - <a href="http://j.mp/2FtMmr" target="_blank">http://j.mp/2FtMmr</a> <a href="http://twitter.com/sarices/statuses/5283560839" target="_blank">#</a></li>
+<li>[GReader Share]东京车展：十款概念轿车震撼发布(图集) - <a href="http://j.mp/3sRUuU" target="_blank">http://j.mp/3sRUuU</a> <a href="http://twitter.com/sarices/statuses/5280627774" target="_blank">#</a></li>
+<li>@<a href="http://twitter.com/izaobao" target="_blank">izaobao</a> 的RSS地址好像有问题，是不是被#<a href="http://search.twitter.com/search?q=%23feedsky" target="_blank">feedsky</a> 删除了？ <a href="http://twitter.com/sarices/statuses/5277292184" target="_blank">#</a></li>
+<li><a href="http://img.ly/9xI" target="_blank">http://img.ly/9xI</a> - 很安详睡在我脚边，到它不知道今天晚上就要被送走了 <a href="http://twitter.com/sarices/statuses/5251956607" target="_blank">#</a></li>
+<li>想买套win7 高级家庭版，但699还是有点贵 <a href="http://twitter.com/sarices/statuses/5250392371" target="_blank">#</a></li>
+<li>RT @zsgov: 2009中山（东升）脆肉鯇美食节启动 <a href="http://snipurl.com/svrrj" target="_blank">http://snipurl.com/svrrj</a> <a href="http://twitter.com/sarices/statuses/5248810122" target="_blank">#</a></li>
+<li>早上好，今天继续研究soap <a href="http://twitter.com/sarices/statuses/5246327277" target="_blank">#</a></li>
+<li>而家D学生，翻学好似做show咁 南京师范大学泰州学院 “告白门” <a href="http://bit.ly/bt9t8" target="_blank">http://bit.ly/bt9t8</a> <a href="http://twitter.com/sarices/statuses/5233392653" target="_blank">#</a></li>
+<li>RT @riku: 在鄙国，关掉一个网站不需要理由。 RT @scavin: 同学们，有人知道 Yupoo 发生什么事情了吗 //发生什么事了？ <a href="http://twitter.com/sarices/statuses/5233097248" target="_blank">#</a></li>
+<li>很难开一次会，但是开会的时候总是说很多不切实际的东西 <a href="http://twitter.com/sarices/statuses/5233005504" target="_blank">#</a></li>
+<li>下班了~ <a href="http://twitter.com/sarices/statuses/5226638580" target="_blank">#</a></li>
+<li>每次我提出开会的时候，大家总是没时间，但相反其他人都有空开会的时候，我却没时间 <a href="http://twitter.com/sarices/statuses/5225649364" target="_blank">#</a></li>
+<li>强大的YQL，还可以抓取网页<a href="http://bit.ly/FX2BL" target="_blank">http://bit.ly/FX2BL</a> <a href="http://twitter.com/sarices/statuses/5224668969" target="_blank">#</a></li>
+<li>python 网上关于soap的资料太少了，而且很旧 <a href="http://twitter.com/sarices/statuses/5224587508" target="_blank">#</a></li>
+<li>利用YQL做代理显示Twitter记录 <a href="http://bit.ly/1qJXXX" target="_blank">http://bit.ly/1qJXXX</a> <a href="http://twitter.com/sarices/statuses/5224582056" target="_blank">#</a></li>
+<li>google code 挂了，好像svn还行。 <a href="http://twitter.com/sarices/statuses/5223909614" target="_blank">#</a></li>
+<li>好像恢复了 <a href="http://twitter.com/sarices/statuses/5199128145" target="_blank">#</a></li>
+<li>twitter api 又挂了 <a href="http://twitter.com/sarices/statuses/5198899058" target="_blank">#</a></li>
+<li>刷主板到slic2.1 只有在dos下刷成功 <a href="http://twitter.com/sarices/statuses/5198890440" target="_blank">#</a></li>
+<li><a href="http://twitpic.com/n4d28" target="_blank">http://twitpic.com/n4d28</a> - <a href="http://twitter.com/sarices/statuses/5195303599" target="_blank">#</a></li>
+<li>安装SOAPpy出错的解决办法<a href="http://blog.woyuw.com/?p=18" target="_blank">http://blog.woyuw.com/?p=18</a> <a href="http://twitter.com/sarices/statuses/5194854758" target="_blank">#</a></li>
+<li>今天依然是没有什么动静 <a href="http://twitter.com/sarices/statuses/5190616444" target="_blank">#</a></li>
+<li>用tor上facebook真的太慢了 <a href="http://twitter.com/sarices/statuses/5189042707" target="_blank">#</a></li>
+<li>[GReader Share]发布淘宝开源编辑器 KISSY Editor 1.0.0 - <a href="http://j.mp/1rwY7Z" target="_blank">http://j.mp/1rwY7Z</a> <a href="http://twitter.com/sarices/statuses/5188238460" target="_blank">#</a></li>
+<li>发现我当内奸还是很有潜力的 <a href="http://twitter.com/sarices/statuses/5174543192" target="_blank">#</a></li>
+<li><a href="http://img.ly/8Zd" target="_blank">http://img.ly/8Zd</a> - 三国杀 <a href="http://twitter.com/sarices/statuses/5173517335" target="_blank">#</a></li>
+<li>在朝日玩三国杀 <a href="http://twitter.com/sarices/statuses/5172394982" target="_blank">#</a></li>
+<li>遇小人 <a href="http://bit.ly/18Mbjx" target="_blank">http://bit.ly/18Mbjx</a> <a href="http://twitter.com/sarices/statuses/5167775707" target="_blank">#</a></li>
+<li>Twitter Weekly Updates for 2009-10-25 <a href="http://bit.ly/2inoh" target="_blank">http://bit.ly/2inoh</a> <a href="http://twitter.com/sarices/statuses/5167775068" target="_blank">#</a></li>
+<li>遇小人 <a href="http://ff.im/-awcE2" target="_blank">http://ff.im/-awcE2</a> <a href="http://twitter.com/sarices/statuses/5167567180" target="_blank">#</a></li>
+<li>遇小人 <a href="http://ff.im/-aw3rH" target="_blank">http://ff.im/-aw3rH</a> <a href="http://twitter.com/sarices/statuses/5166672939" target="_blank">#</a></li>
+</ul>
+<p>Powered by <a href="http://alexking.org/projects/wordpress" target="_blank">Twitter Tools</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.bubutang.com/2009/11/01/twitter-weekly-updates-for-2009-11-01/" data-id="0vj2gmr122oihrme" class="article-share-link">Share</a>
+      
+        <a href="http://blog.bubutang.com/2009/11/01/twitter-weekly-updates-for-2009-11-01/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" href="/categories/旧文章/">&laquo; Prev</a><a class="page-number" href="/categories/旧文章/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/旧文章/page/3/">3</a><a class="page-number" href="/categories/旧文章/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/categories/旧文章/page/30/">30</a><a class="extend next" href="/categories/旧文章/page/3/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/消息/">消息</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Wordpress/">Wordpress</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/旧文章/">旧文章</a><span class="category-list-count">291</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/本站/">本站</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/消息/">消息</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04">四月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02">二月 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12">十二月 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/04">四月 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03">三月 2010</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/02">二月 2010</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12">十二月 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11">十一月 2009</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10">十月 2009</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09">九月 2009</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08">八月 2009</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07">七月 2009</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04">四月 2009</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03">三月 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02">二月 2009</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01">一月 2009</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12">十二月 2008</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11">十一月 2008</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10">十月 2008</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09">九月 2008</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08">八月 2008</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07">七月 2008</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06">六月 2008</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05">五月 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/04">四月 2008</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/03">三月 2008</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/02">二月 2008</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/01">一月 2008</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/12">十二月 2007</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/11">十一月 2007</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/10">十月 2007</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/09">九月 2007</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/08">八月 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07">七月 2007</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06">六月 2007</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/05">五月 2007</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04">四月 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/03">三月 2007</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/02">二月 2007</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/12">十二月 2006</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/11">十一月 2006</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/10">十月 2006</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/09">九月 2006</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/08">八月 2006</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/07">七月 2006</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/06">六月 2006</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05">五月 2006</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/04">四月 2006</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/03">三月 2006</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02">二月 2006</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/01">一月 2006</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/12">十二月 2005</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/11">十一月 2005</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/10">十月 2005</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/04/13/centos编译安装git/">Centos编译安装Git</a>
+          </li>
+        
+          <li>
+            <a href="/2013/10/24/ios固件更新到7-0-3/">ios固件更新到7.0.3</a>
+          </li>
+        
+          <li>
+            <a href="/2013/09/24/wordpress函数-add_theme_support/">WordPress函数 add_theme_support</a>
+          </li>
+        
+          <li>
+            <a href="/2013/09/22/wordpress-主题添加自定义背景/">Wordpress 主题添加自定义背景</a>
+          </li>
+        
+          <li>
+            <a href="/2013/09/22/uptime最长时间的机器/">Uptime最长时间的机器</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 sarices<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'bubutang';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/js/script.js"></script>
+  </div>
+</body>
+</html>

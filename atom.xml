@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.bubutang.com/"/>
-  <updated>2014-04-15T10:52:41.042Z</updated>
+  <updated>2014-04-16T05:38:26.437Z</updated>
   <id>http://blog.bubutang.com/</id>
   
   <author>
@@ -13,6 +13,25 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[最近对Nodejs有兴趣]]></title>
+    <link href="http://blog.bubutang.com/2014/04/16/recently-considerable-interest-for-nodejs/"/>
+    <id>http://blog.bubutang.com/2014/04/16/recently-considerable-interest-for-nodejs/</id>
+    <published>2014-04-16T02:55:50.000Z</published>
+    <updated>2014-04-16T05:37:42.000Z</updated>
+    <content type="html"><![CDATA[<p>最近发现原来nodejs挺好的，npm包管理器真心好用，比python的pip好用多了，nodejs天生支持虚拟环境，配合npm非常好。</p>
+<pre><code>npm install express <span class="comment">//全局安装</span>
+npm install express <span class="attribute">-g</span> <span class="comment">//安装在本地</span>
+</code></pre><p>npm也支持配置文件只要在目录添加package.json文件，文件的格式是json格式，添加所需要的包</p>
+<pre><code>npm install <span class="comment">//根据package.json安装所需要的环境</span>
+</code></pre><p>之前听说nodejs只支持单核cpu，其实做一般项目用到多核的机会多吗？只要你对javascript有所了解，就很容易上手，现在准备用nodejs把之前做得中山公共自行车微信查询重写一次，算是熟悉一下nodejs开发的流程。</p>
+]]></content>
+    
+    
+      <category term="nodejs" scheme="http://blog.bubutang.com/categories/nodejs/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[使用Hexo搭建Blog]]></title>
@@ -453,25 +472,6 @@ extension=&quot;apc.so&quot;  </pre>
     <updated>2014-04-14T05:22:00.000Z</updated>
     <content type="html"><![CDATA[<p>前天和LP去领证了，路过岐江公园，看到满地的落叶。</p>
 <p><a href="http://www.flickr.com/photos/xiaochuan/4378415081/" title="Flickr 上 客串 的 DSC_1827" target="_blank"><img src="http://farm5.static.flickr.com/4040/4378415081_9e58af4c54_b.jpg" alt="DSC_1827"></a></p>
-]]></content>
-    
-    
-      <category term="旧文章" scheme="http://blog.bubutang.com/categories/%E6%97%A7%E6%96%87%E7%AB%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[2009个人总结]]></title>
-    <link href="http://blog.bubutang.com/2009/12/31/2009%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
-    <id>http://blog.bubutang.com/2009/12/31/2009个人总结/</id>
-    <published>2009-12-31T01:33:20.000Z</published>
-    <updated>2014-04-14T05:22:00.000Z</updated>
-    <content type="html"><![CDATA[<p>2009对于我来说过得太快了，仿佛奥运就在昨天，可是今天已经到了2009的最后一天了，还有不到24个小时就踏入2010，2000年的时候还在想10年之后自己是怎样的？结婚了吗？答案很明显，还没有结婚，或许明年吧，如果明年还不行的话后年也要结婚了，不能辜负女朋友。</p>
-<p>公司的项目还是在困难前行，11月的时候小小打击了一下，国家政策的关系，涉及到我们项目的一个电视频道关闭了，幸好老板人脉广，下个月会在本地数字电视上开一个点播频道，第一次做本土市场，对于网络招聘来说，中山是一个成熟的市场，N个招聘网站，不知道对于电视招聘来说反应如何，而且中山数字电视整转不知道什么时候结束，前路还是一片迷茫。</p>
-<p>7月份的时候，和朋友接手了IDEAL，第一次有自己的店，虽然是几分之一，但毕竟是自己的，接手到现在，花了很多时间在上面，店员也换了两次，店的业绩平平，现在还是在亏本，最好就是上一个月，6成订单来自网络上得推广，只有不到4成是来自店铺的客人，一直没开淘宝店，因为我们得价格太贵了，进货量少，根本不能很低价拿货。我们每天都要花很多时间在找新货上面，虽然很多人都说我们得店很特别，不想其他店铺堆得满满的，但是我们新货太少了，所以我们不多找新货，但是店铺的人流量太少了，有时候一天也没有一单生意。困难很多，但是我们都克服了，希望明年有一个新的开始，寄望明年的情人节。</p>
-<p>今年只去了一次旅行，而且是进公司以来第一次公司集体去旅行，这次我带了女友去，虽然景点有点不如意，但是能出外放松一下心情也是件好事，10月份的时候本来去厦门的，但是有些事情去不了，现在还在后悔，很多时候都是计划赶不上变化的，这个世界时时刻刻都在变，本来想这个月把剩下的年假都放了，免得像上一年吧年假都奉献嘅了感冒病毒，但是公司的项目很急老板暗示不给我放年假了，又一次旅行计划泡汤。这个元旦放假3天，计划去从化，希望明天能按时出发。</p>
-<p>结婚？今年很多人结婚，做兄弟也做了几次，11月到12月份一个星期至少都有两次喝喜酒的机会，工资都奉献在人情上面了，结婚是幸福的，但是过程就。。。有三个兄弟都结婚了，下一次可能会轮到我了，如果不用摆喜酒就好了，但是这是不可能的是，就算我爸妈，女友爸妈都同意不摆喜酒，但是我的姑姑、叔叔会同意吗？最终我还是要经历这个痛苦的过程。</p>
-<p>这个世界变化太快，很多时候都是计划赶不上变化，希望明年家人朋友和我都能身体健康就好了，顺利到达2011。</p>
 ]]></content>
     
     

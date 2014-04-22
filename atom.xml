@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.bubutang.com/"/>
-  <updated>2014-04-16T05:38:26.437Z</updated>
+  <updated>2014-04-22T09:05:56.234Z</updated>
   <id>http://blog.bubutang.com/</id>
   
   <author>
@@ -13,6 +13,73 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[nrm 快速切换 npm 源]]></title>
+    <link href="http://blog.bubutang.com/2014/04/22/nrm-fast-switching-npm-source/"/>
+    <id>http://blog.bubutang.com/2014/04/22/nrm-fast-switching-npm-source/</id>
+    <published>2014-04-22T09:01:52.000Z</published>
+    <updated>2014-04-22T09:04:52.000Z</updated>
+    <content type="html"><![CDATA[<p>由于众所周知的原因，npm官方源在国外，国外的服务器普遍网速度慢，延时大，有时候还不能响应，当然我们可以使用代理服务器，代理服务器有时候也会慢(你懂得)，还有一个方法就是用国内的镜像服务器如cnpmjs.org和淘宝npm，最近发现了神器nrm，字母r和m靠的比较紧，请注意，该神器可以快速切换源，还能测速，暂时支持下面几个源： </p>
+<pre><code><span class="built_in">npm</span>
+cnpm
+strongloop
+european
+australia
+nodejitsu
+taobao
+</code></pre><p>安装方法</p>
+<pre><code><span class="preprocessor"># npm install -g nrm</span>
+</code></pre><p>使用方法<br>列出和切换</p>
+<pre><code><span class="preprocessor"># nrm ls</span>
+
+* npm ---- https://registry<span class="preprocessor">.npmjs</span><span class="preprocessor">.org</span>/
+  cnpm --- http://r<span class="preprocessor">.cnpmjs</span><span class="preprocessor">.org</span>/
+  taobao - http://registry<span class="preprocessor">.npm</span><span class="preprocessor">.taobao</span><span class="preprocessor">.org</span>/
+  eu ----- http://registry<span class="preprocessor">.npmjs</span><span class="preprocessor">.eu</span>/
+  au ----- http://registry<span class="preprocessor">.npmjs</span><span class="preprocessor">.org</span><span class="preprocessor">.au</span>/
+  sl ----- http://npm<span class="preprocessor">.strongloop</span><span class="preprocessor">.com</span>/
+  nj ----- https://registry<span class="preprocessor">.nodejitsu</span><span class="preprocessor">.com</span>/
+
+<span class="preprocessor"># nrm use cnpm  //switch registry to cnpm</span>
+
+    Registry has been <span class="keyword">set</span> to: http://r<span class="preprocessor">.cnpmjs</span><span class="preprocessor">.org</span>/
+</code></pre><p>测速</p>
+<pre><code><span class="preprocessor"># nrm test</span>
+
+* npm <span class="comment">---- 2946ms</span>
+  cnpm <span class="comment">--- 1650ms</span>
+  taobao - <span class="number">725</span>ms
+  eu <span class="comment">----- 1898ms</span>
+  au <span class="comment">----- 1552ms</span>
+  sl <span class="comment">----- 2124ms</span>
+  nj <span class="comment">----- 3243ms</span>
+</code></pre><p>使用帮助</p>
+<pre><code><span class="comment"># nrm -h</span>
+
+  Usage: nrm [options] [<span class="command"><span class="keyword">command</span>]</span>
+
+  Commands:
+
+    ls                     list all <span class="operator">the</span> registries
+    use &lt;registry&gt;         change registry <span class="built_in">to</span> registry
+    <span class="built_in">add</span> &lt;registry&gt; &lt;url&gt; [home] <span class="built_in">add</span> <span class="constant">one</span> custom registry
+    del &lt;registry&gt;         <span class="built_in">delete</span> <span class="constant">one</span> custom registry
+    home &lt;registry&gt; [browser] <span class="built_in">open</span> <span class="operator">the</span> homepage <span class="operator">of</span> registry <span class="operator">with</span> optional browser
+    test [registry]        show response <span class="built_in">time</span> <span class="keyword">for</span> specific <span class="operator">or</span> all registries
+    help                   print this help
+
+  Options:
+
+    -h, <span class="comment">--help     output usage information</span>
+    -V, <span class="comment">--version  output the version number</span>
+</code></pre><p>项目主页：<a href="https://github.com/Pana/nrm" target="_blank">https://github.com/Pana/nrm</a></p>
+]]></content>
+    
+    
+      <category term="nodejs" scheme="http://blog.bubutang.com/categories/nodejs/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[最近对Nodejs有兴趣]]></title>
@@ -457,21 +524,6 @@ extension=&quot;apc.so&quot;  </pre>
 <blockquote>
 <p>我们从小就笼罩在亲爱的伟人孙中山先生的“阴影”下长大，我们有道路叫兴中道、中山路、孙文路、逸仙路、博爱路、民权路、民生路、民族路，有医院叫博爱医院，甚至连体育馆体育场都叫做兴中体育馆兴中体育场。所有学校春游秋游必去地点是孙文公园和孙中山故居，我们几乎每个人都在那个高大的孙中山铜像前面献过花鞠过躬，几乎每个人小时候都知道那座两层红色小洋房是孙中山的哥哥从檀香山（夏威夷）寄钱回来起的。<br>我们从小吃着采蝶轩的面包长大，甚至很多学校饭堂的早餐也是采蝶轩的。我们还永远熟记一句中山名言“哪里有采蝶轩，哪里就有马得利”。<br>我们看着麦先生变得越来越胖同时越来越有钱，看着他把他的张溪海港、沙溪海港、库充海港、交通海港、王子扒房，一步一步拓展成了现在的皇子私房菜、皇子饭店、海港城、中港城。<br>我们还去东悦轩、东悦名厨、怡景、富华宫、国际、莲兴、恒心、京华、潮苑饮茶，金吒和淋糖饼的旁边永远标着“中山怀旧特色点心”。<br>我们总会怀念那肉嫩骨脆的石岐乳鸽，特别是怡景的，28元/只，特别选用出生仅11天的乳鸽，嫩得连骨头都可以吞下。<br>我们从小就吃咀香园的杏仁饼，最正宗的杏仁饼就是绿豆粉夹猪肉，其实杏仁饼从来就是没杏仁的……ORZ。（我在《中山商报》做记者的时候才发现其实逢源和亭子下之间的那间惠赞才是中山最老字号的杏仁饼铺……ORZ）<br>我们有人喜欢去杰克魔豆，有人喜欢去蔷薇心晴，有人喜欢去六元素，也有人喜欢去荷房CAFE。<br>维港湾靠河边的那条街，已经成功地变成了“中山文艺青年集散地”。<br>我们去博雅的次数比新华书店要多很多。<br>小时候，我们常去步行街、民族东路、中恳百货、商业大厦、中山百货、益华百货逛街，后来，我们还去益华百货逛街，其他的却变成了大信、假日和逢源。<br>我们最常逛的超市以前是壹加壹和置禾，后来又多了大润发（大福源）、百佳和吉之岛。<br>太平路是中山的波鞋街和灯饰街，民族东路是女人街，民权路是电讯街。<br>我们看着满眼的榕树长大，每个旧村口都有课几百年的巨大老榕树，很多街道两旁的榕树异常茂密，枝叶互相交叉，好像为那条街搭了一个绿色的凉棚。<br>旧中心小学门口有两棵超级巨大的木棉花树，粗壮到要4个人才能拉手环抱，开花的季节，地上铺满了厚厚的红花，总有很多家长和学生把木棉花捡回家里晒干，然后拿来煲凉茶煲糖水。<br>一中的围墙是香山的旧城墙，那里里一层层沉积着属于明朝、清朝、民国、新中国的各色砖头，校长姓罗。<br>纪中在远离市中心，建在孙中山故居旁边，是孙中山的儿子孙科先生为纪念其父亲而建造的学校，贺校长长着一双熊猫般的眼睛。（全市闻名的“熊猫校长”，我的母校~）<br>多数人对罗校长和贺校长的差异总是津津乐道。<br>衡艺卖的东西超级多，丰华有便宜的UNI、漂亮的本子和以前不肯开现在肯开发票的老板娘，锦华有很多漫画书、明星海报和香港杂志。<br>我们也从小就听熟了那个汤书记说“你SI好过我SI，我SI不够你SI好”的笑话。<br>我们无论如何，大概总会参加过至少一次“慈善（痴线）万人行”，无论是小时候跟爸爸妈妈单位去的，还是后来读书时学校组织去的。即使没有参加过，也总有“贡献”过。<br>中山曾经有全国闻名的名牌产品“威力”和“美怡乐”，可现在威力变成了东菱，洗衣机厂已成废墟，美怡乐也没人吃了。<br>现在威震全国的品牌是“雅居乐地产”，老板三兄弟在中国富豪前二十里占据着一个位置，雅居乐甚至把房子建到了海南岛上。<br>在中山，人们想到凉茶和牛肉粥会想到沙溪,想到腊肠和香蕉会想到黄圃,想到电子五金和有钱人会想到小榄,想到红木家私会想到大涌,想到茶果会想到三乡，想到灯会想到古镇……<br>我们从来不讲中山话，我们只讲石岐话沙溪话小榄话大涌话古镇话……<br>中山有个电视台叫中山电视台，那里有个节目叫《中山故事》，可惜主讲的超哥是个广州人。中山有个电台叫中山广播台，以前只有FM96.7，现在还多了一个不错的音乐旅游频道叫FM88.8。<br>中山有很旧的体育馆和体育场，但间或还是会有巨星在那开演唱会，而且体育馆竟然还是宏远的主场，朱芳雨、易建联都曾经在这里洒下汗水和欢笑。<br>我们从小就被教导历史说，中山以前叫香山，那时的香山无比的大，包括了现在的珠海和澳门。<br>中山的巴士很干净很漂亮，现在为了节省资源，还新出现了超短超可爱的小巴士。<br>我们坐船去香港只要1小时45分钟，而且直达繁华的尖沙咀，去拱北关闸再过关进了澳门也只要1小时30分钟，比开车去广州天河都要快得多。<br>中山的区号是0760，中山的车牌以粤T开头，中山的母亲河是岐江河，中山的主山脉是五桂山。<br>中山是全广东最小的地级市。<br>中山只有130万的常住人口和130万的外来人口。<br>中山小得要把所有事物合并起来才撑得起一个行政单位，所以中山有别的城市没有的“电视广播新闻出版局”。<br>中山在豆瓣上被广为流传评价为“一个波澜不惊养老等死的城市”。<br>但是……<br>中山是全国唯一一个以名人名字命名的城市。<br>中山是全中国第一个被联合国授予“人居奖”的城市。<br>中山是全广东唯一两个入选“全国首批精神文明城市”的城市之一，另外一个是深圳。<br>中山在“全中国城市幸福感排行榜”中名列第三。<br>最重要的是……<br>中山是我们永远最可爱的家。<br>中山是我们心里最柔软的存在。</p>
 </blockquote>
-]]></content>
-    
-    
-      <category term="旧文章" scheme="http://blog.bubutang.com/categories/%E6%97%A7%E6%96%87%E7%AB%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[冬日里的秋意]]></title>
-    <link href="http://blog.bubutang.com/2010/02/13/%E5%86%AC%E6%97%A5%E9%87%8C%E7%9A%84%E7%A7%8B%E6%84%8F/"/>
-    <id>http://blog.bubutang.com/2010/02/13/冬日里的秋意/</id>
-    <published>2010-02-13T04:28:52.000Z</published>
-    <updated>2014-04-14T05:22:00.000Z</updated>
-    <content type="html"><![CDATA[<p>前天和LP去领证了，路过岐江公园，看到满地的落叶。</p>
-<p><a href="http://www.flickr.com/photos/xiaochuan/4378415081/" title="Flickr 上 客串 的 DSC_1827" target="_blank"><img src="http://farm5.static.flickr.com/4040/4378415081_9e58af4c54_b.jpg" alt="DSC_1827"></a></p>
 ]]></content>
     
     

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="最近把服务器上的杀毒软件换成Mcafee了，之前是用卡吧的，但卡吧两次误杀了SQL Server的重要文件，害得我重装了两次SQL Server，没办法换了Mcafee，在上次换系统的时候就一直用Mcafee，从来没出过事，刚装就杀了几个木马，卡吧一直没查出来，在网上收集了Mcafee的日志代码，放在这里共享一下：  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mcafee ViruScan Enterprise 8.5 日志代码解释">
+<meta property="og:url" content="http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/index.html">
+<meta property="og:site_name" content="卜卜堂">
+<meta property="og:description" content="最近把服务器上的杀毒软件换成Mcafee了，之前是用卡吧的，但卡吧两次误杀了SQL Server的重要文件，害得我重装了两次SQL Server，没办法换了Mcafee，在上次换系统的时候就一直用Mcafee，从来没出过事，刚装就杀了几个木马，卡吧一直没查出来，在网上收集了Mcafee的日志代码，放在这里共享一下：  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbs">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-05-16T07:20:18.793Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mcafee ViruScan Enterprise 8.5 日志代码解释">
+<meta name="twitter:description" content="最近把服务器上的杀毒软件换成Mcafee了，之前是用卡吧的，但卡吧两次误杀了SQL Server的重要文件，害得我重装了两次SQL Server，没办法换了Mcafee，在上次换系统的时候就一直用Mcafee，从来没出过事，刚装就杀了几个木马，卡吧一直没查出来，在网上收集了Mcafee的日志代码，放在这里共享一下：  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbs">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Mcafee ViruScan Enterprise 8.5 日志代码解释</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2007/07/19/无名小站被封了/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2007/07/10/测试一下audio-player插件/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&text=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&title=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&is_video=false&description=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Mcafee ViruScan Enterprise 8.5 日志代码解释&body=Check out this article: http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&title=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&title=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&title=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&title=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&name=Mcafee ViruScan Enterprise 8.5 日志代码解释&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&t=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Mcafee ViruScan Enterprise 8.5 日志代码解释
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">sarices</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2007-07-12T02:04:10.000Z" itemprop="datePublished">2007-07-12</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/旧文章/">旧文章</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>最近把服务器上的杀毒软件换成Mcafee了，之前是用卡吧的，但卡吧两次误杀了SQL Server的重要文件，害得我重装了两次SQL Server，没办法换了Mcafee，在上次换系统的时候就一直用Mcafee，从来没出过事，刚装就杀了几个木马，卡吧一直没查出来，在网上收集了Mcafee的日志代码，放在这里共享一下：</p>
+<blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1024 发现感染病毒的文件<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1025 已成功清除文件感染的病毒<br>　　　　1026 无法清除文件中感染的病毒<br>　　　　1027 感染病毒的文件已删除<br>　　　　1028 无法删除感染病毒的文件<br>　　　　1029 要从扫描中排除的文件<br>　　　　1030 无法从扫描中排除项目<br>　　　　1031 拒绝访问感染病毒的文件<br>　　　　1032 感染病毒的文件已被移到隔离文件夹<br>　　　　1033 无法将感染病毒的文件移动到隔离文件夹<br>　　　　1034 扫描已完成未发现病毒<br>　　　　1035 扫描被取消<br>　　　　1036 内存已感染病毒<br>　　　　1037 发现感染病毒的引导记录<br>　　　　1038 扫描发现感染病毒的文件<br>　　　　1039 扫描发现感染病毒的文件并已清除病毒<br>　　　　1040 活动日志错误<br>　　　　1041 扫描报告内存分配错误<br>　　　　1042 路径太长<br>　　　　1043 介质有写保护<br>　　　　1044 找不到指定的介质<br>　　　　1045 指定的扫描项目无效<br>　　　　1046 文件 I/O 错误<br>　　　　1047 磁盘 I/O 错误<br>　　　　1048 扫描报告常规系统错误<br>　　　　1049 扫描报告内部系统错误<br>　　　　1050 无法修复受密码保护的项目<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1051 无法扫描受密码保护的项目<br>　　　　1052 感染病毒的捆绑对象<br>　　　　1053 发现感染病毒的文件<br>　　　　1054 感染病毒的文件已删除<br>　　　　1055 无法删除感染病毒的文件<br>　　　　1056 文件已移动到隔离文件夹<br>　　　　1057 无法将感染病毒的文件移动到隔离文件夹<br>　　　　1059 扫描超时<br>　　　　1060 引导区病毒已清除<br>　　　　1061 清除引导区病毒时出错<br>　　　　1062 发送警报时出错<br>　　　　1063 指定的选项无效<br>　　　　1064 服务已启动<br>　　　　1065 服务已结束<br>　　　　1066 任务成功启动<br>　　　　1067 无法启动计划的任务<br>　　　　1068 计划的任务已停止<br>　　　　1069 停止计划的任务时出错<br>　　　　1070 任务成功完成<br>　　　　1071 任务已取消<br>　　　　1076 记录信息时出错<br>　　　　1077 内存分配错误<br>　　　　1086 扫描进程错误<br>　　　　1087 按访问扫描已启动<br>　　　　1088 按访问扫描已停止<br>　　　　1089 扫描设置<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 1090 OAS 已停止<br>　　　　1091 已阻止脚本运行<br>　　　　1092 已被行为阻挡规则阻挡<br>　　　　1093 已被缓冲区溢出保护阻挡<br>　　　　1094 已被端口阻挡规则阻挡<br>　　　　1095 将被行为阻挡规则阻挡<br>　　　　1099 将被缓冲区溢出保护阻挡<br>　　　　1100 在文件中检测到宏<br>　　　　1101 已从文件中删除宏<br>　　　　1118 更新成功完成<br>　　　　1119 更新失败：请参阅事件日志<br>　　　　1120 正在更新<br>　　　　1121 更新已取消<br>　　　　1122 正在升级<br>　　　　1123 升级失败，参阅事件日志<br>　　　　1124 升级已取消<br>　　　　1125 DAT 版本不够新<br>　　　　1126 扫描任务被 DAT 文件的自动更新而取消<br>　　　　1127 OAS 扫描引擎已禁用<br>　　　　1128 扫描超时<br>　　　　1129 扫描任务被 WINDOWS 关闭<br>　　　　1200 进程已启动<br>　　　　1201 进程已结束<br>　　　　1202 按需扫描已启动<br>　　　　1203 按需扫描完成<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;1204 报告操作系统序列号<br>　　　　1270 病毒已隔离，没有清除程序<br>　　　　1271 病毒已隔离，启发式扫描<br>　　　　1272 病毒已隔离，不能清除<br>　　　　1273 病毒已隔离，已加密<br>　　　　1274 病毒未清除或隔离<br>　　　　1275 病毒，启发式扫描，隔离失败<br>　　　　1276 病毒，清除错误，隔离失败<br>　　　　1277 病毒，已加密，隔离失败<br>　　　　1278 病毒，没有清除程序，已删除<br>　　　　1279 病毒，启发式扫描，没有清除程序，已删除<br>　　　　1280 病毒，清除错误，已删除<br>　　　　1281 病毒，已加密，已删除<br>　　　　1282 病毒，没有清除程序，删除失败<br>　　　　1283 病毒，启发式扫描，删除失败<br>　　　　1284 病毒，清除错误，删除失败<br>　　　　1285 病毒，已加密，删除失败<br>　　　　1286 病毒，没有清除程序，已继续<br>　　　　1287 病毒，启发式扫描，已继续<br>　　　　1288 病毒，清除错误，已继续<br>　　　　1289 病毒，已加密，已继续<br>　　　　1290 病毒，没有清除程序，拒绝访问<br>　　　　1291 病毒，启发式扫描，拒绝访问<br>　　　　1292 病毒，清除错误，已拒绝访问<br>　　　　1293 病毒，隔离失败，已删除<br>　　　　1294 病毒，隔离失败，删除失败<br>　　　　1295 病毒，隔离失败，已继续<br>　　　　1296 病毒，隔离失败，已拒绝访问<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 1297 病毒，删除失败，已隔离<br>　　　　1298 病毒，删除失败，隔离失败<br>　　　　1299 病毒，删除失败，已继续<br>　　　　1300 病毒，删除失败，已拒绝访问<br>　　　　1401 用户检测<br>　　　　1402 用户清除和移动失败<br>　　　　1403 用户检测已移动<br>　　　　1404 用户清除和删除失败<br>　　　　1405 用户检测已删除<br>　　　　1406 用户检测已移动<br>　　　　1407 用户移动和删除失败<br>　　　　1408 用户检测已删除<br>　　　　1409 用户检测移动失败<br>　　　　1410 用户检测已删除<br>　　　　1411 用户删除和移动失败<br>　　　　1412 用户检测已移动<br>　　　　1413 用户检测删除失败<br>　　　　1500 已清除电子邮件感染的病毒<br>　　　　1501 感染病毒的电子邮件已隔离<br>　　　　1502 无法清除邮件中感染的病毒<br>　　　　1503 检测到感染病毒的电子邮件<br>　　　　1504 感染病毒的邮件项目已删除<br>　　　　1505 电子邮件内容已过滤<br>　　　　1506 电子邮件内容已阻挡<br>　　　　1507 入站邮件因磁盘空间不足而挂起<br>　　　　1508 入站邮件已恢复<br>　　　　1509 启动请求处理成功<br>　　　　1510 关闭请求处理成功<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1511 警告 - 异常终止<br>　　　　1512 出现最大负载的情况<br>　　　　1513 邮件病毒已隔离和清除<br>　　　　1514 邮件病毒已隔离[未清除]<br>　　　　1700 服务已成功启动<br>　　　　1701 服务已成功结束<br>　　　　1702 文件已阻挡<br>　　　　1703 发现感染病毒的邮件正文<br>　　　　1704 邮件被主题行扫描阻挡<br>　　　　1705 发现感染病毒的文件<br>　　　　1712 出现内部错误<br>　　　　1713 按需扫描已启动<br>　　　　1714 按需扫描已完成<br>　　　　1715 防病毒引擎已停止<br>　　　　1716 防病毒引擎已启动<br>　　　　1719 无更新可用<br>　　　　1721 磁盘空间不足<br>　　　　1722 发现感染病毒的文件<br>　　　　1725 产品即将达到使用寿命<br>　　　　1726 引擎即将达到使用寿命<br>　　　　1727 产品已超过支持期限<br>　　　　1728 引擎已超过支持期限<br>　　　　1729 已超过产品使用寿命<br>　　　　1730 已超过引擎使用寿命<br>　　　　1800 任务已成功启动<br>　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;1801 启动任务时出错<br>　　　　1802 任务已完成<br>　　　　1803 停止任务时出错<br>　　　　1804 已发现并清除文件病毒<br>　　　　1805 感染病毒的文件已成功隔离<br>　　　　1806 感染病毒的文件已删除<br>　　　　1807 感染病毒的文件已忽略。<br>　　　　1808 已隔离一个 LotusScript 异常错误<br>　　　　1810 已隔离一个 Formula 异常错误<br>　　　　1812 已隔离一个内容异常错误<br>　　　　1814 无法读取配置数据库<br>　　　　1815 无法写入配置数据库<br>　　　　1816 AutoUpdate无法重新启动任务<br>　　　　1817 AutoUpdate 失败<br>　　　　1818 附件已阻挡<br>　　　　1900 新的 MIB 文件可用<br>　　　　2000 Alert Manager 测试警报<br>　　　　2001 Alert Manager 测试警报<br>　　　　2100 病毒发作规则名称<br>　　　　2101 病毒发作规则名称<br>　　　　4650 检测到的LJ邮件<br>　　　　4651 LJ邮件统计信息<br>　　　　4700 无法连接至 CMA 更新程序<br>　　　　4701 无法连接至 CMA 计划程序<br>　　　　4702 无法将计划数据保存到 CMA<br>　　　　5000 软件许可即将过期<br>　　　　5001 软件许可已过期<br>　　　　5002 软件评估许可即将过期<br>　　　　5003 软件评估许可已过期<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5004 提供的产品代码不正确<br>　　　　5006 提供的许可号无效<br>　　　　5007 该计算机的时钟设置被“提前”<br>　　　　5008 许可信息已损坏<br>　　　　5009 许可信息无法写入永久存储器<br>　　　　5010 无法从永久存储器中读取许可信息<br>　　　　5011 没有安装特定的产品许可<br>　　　　5013 提供的缓冲区太小，无法容纳数据<br>　　　　5014 许可库已损坏<br>　　　　5015 InitializeLicenseLibrary 尚未被调用<br>　　　　5016 InitializeLicenseLibrary 已经被调用<br>　　　　5017 输入的许可号错误<br>　　　　5018 加密数据时出现错误<br>　　　　5019 内存不足<br>　　　　5020 发生未知的异常错误<br>　　　　5021 提供的字母数字字符串错误<br>　　　　5022 提供的产品代码错误<br>　　　　5023 提供的过期日期错误<br>　　　　5024 提供的生成日期错误<br>　　　　5025 无法获取当前时间<br>　　　　5026 测试版许可即将过期<br>　　　　5027 测试版许可即已过期<br>　　　　6000 应用程序错误<br>　　　　8000 发现感染病毒的项目<br>　　　　8500 发现禁止的项目<br>　　　　8501 发现加密/损坏的项目<br>　　　　8502 项目符合过滤标准 <div class="wlWriterSmartContent" id="0767317B-992E-4b12-91E0-4F059A8CECA8:0d6ecc82-5674-4714-8f19-0dabf34ce1c8" contenteditable="false" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati 标记: <a href="http://technorati.com/tags/%e6%97%a5%e5%bf%97" target="_blank" rel="noopener">日志</a>, <a href="http://technorati.com/tags/%e4%bb%a3%e7%a0%81" target="_blank" rel="noopener">代码</a>, <a href="http://technorati.com/tags/Mcafee" target="_blank" rel="noopener">Mcafee</a>, <a href="http://technorati.com/tags/%e5%8d%a1%e5%90%a7" target="_blank" rel="noopener">卡吧</a></div></p>
+</blockquote>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="http://github.com/probberechts">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&text=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&title=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&is_video=false&description=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Mcafee ViruScan Enterprise 8.5 日志代码解释&body=Check out this article: http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&title=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&title=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&title=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&title=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&name=Mcafee ViruScan Enterprise 8.5 日志代码解释&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.bubutang.com/2007/07/12/mcafee-viruscan-enterprise-85-日志代码解释/&t=Mcafee ViruScan Enterprise 8.5 日志代码解释"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2022
+    sarices
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

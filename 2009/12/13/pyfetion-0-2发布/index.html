@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="PyFetion新版本发布，协议根据移动09.11.04的飞信版本：Fetion2008 3.5.2(安全加强版) 更新内容包含：   增加查看飞信好友是否隐身功能2.  增加登录时状态的选择[隐身 在线 忙碌 离开]3.  日志改用Python的logging模块4.  增加对好友状态改变的处理( 如上线等)5.  重写TCP方式中的底层通信函数6.  使用对列保存接收到的多余消息( 例如发短信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PyFetion 0.2发布">
+<meta property="og:url" content="http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/index.html">
+<meta property="og:site_name" content="卜卜堂">
+<meta property="og:description" content="PyFetion新版本发布，协议根据移动09.11.04的飞信版本：Fetion2008 3.5.2(安全加强版) 更新内容包含：   增加查看飞信好友是否隐身功能2.  增加登录时状态的选择[隐身 在线 忙碌 离开]3.  日志改用Python的logging模块4.  增加对好友状态改变的处理( 如上线等)5.  重写TCP方式中的底层通信函数6.  使用对列保存接收到的多余消息( 例如发短信">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-05-16T07:20:19.109Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PyFetion 0.2发布">
+<meta name="twitter:description" content="PyFetion新版本发布，协议根据移动09.11.04的飞信版本：Fetion2008 3.5.2(安全加强版) 更新内容包含：   增加查看飞信好友是否隐身功能2.  增加登录时状态的选择[隐身 在线 忙碌 离开]3.  日志改用Python的logging模块4.  增加对好友状态改变的处理( 如上线等)5.  重写TCP方式中的底层通信函数6.  使用对列保存接收到的多余消息( 例如发短信">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>PyFetion 0.2发布</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2009/12/31/2009个人总结/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2009/12/08/web服务器文件下载的奇怪问题/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&text=PyFetion 0.2发布"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&title=PyFetion 0.2发布"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&is_video=false&description=PyFetion 0.2发布"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PyFetion 0.2发布&body=Check out this article: http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&title=PyFetion 0.2发布"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&title=PyFetion 0.2发布"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&title=PyFetion 0.2发布"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&title=PyFetion 0.2发布"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&name=PyFetion 0.2发布&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&t=PyFetion 0.2发布"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        PyFetion 0.2发布
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">sarices</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2009-12-13T14:06:45.000Z" itemprop="datePublished">2009-12-13</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/旧文章/">旧文章</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>PyFetion新版本发布，协议根据移动09.11.04的飞信版本：Fetion2008 3.5.2(安全加强版)</p>
+<p>更新内容包含：</p>
+<blockquote>
+<ol>
+<li>增加查看飞信好友是否隐身功能2.  增加登录时状态的选择[隐身 在线 忙碌 离开]3.  日志改用Python的logging模块4.  增加对好友状态改变的处理( 如上线等)5.  重写TCP方式中的底层通信函数6.  使用对列保存接收到的多余消息( 例如发短信时本来应该返回200 OK 却先来了个BN通知消息，以前这样会出错，现在底层会把BN消息放在队列中，返回200 OK)7.  修改了一些异常处理方式8.  增加登出，删除好友函数9.  改写get_contactlist函数，使用一个dict保存当前的好友列表10.  增加一个receive函数 做客户端的时候可以在一个线程中主调用该函数，所有的消息都会yield出来(请参考fetion.py)11.  修正向PC发送消息的命令，飞信新增加了一个CatMsg的命令12.  增加接收从最新版本PC端发送的消息功能;这个比较麻烦新版本飞信对每一个新会话使用fork出一个线程的方式;        &gt; John先给服务器说我要开个新会话，服务应答一个消息说，你去这个IP吧，带着这个密钥 于是John就连到了这个IP，并使用这个密钥登录，接着发一个包含Bob的uri的邀请命令; 服务器把这个通知(包含IP 密钥和邀请者John的uri)给Bob，Bob收到服务器的通知后也用同样的密钥登录该IP 这时John收到Bob进入会话的消息，他就开始正式发消息了13.  许多清理了修正14.  调整类的结构15.  改用MIT License    &gt; 16.  增加了一个CLI的飞信客户端 跨平台支持    <blockquote>17.  Fedora8 Python2.5。1测试;Windowx XP Python2.6.4测试;Win7 Python2.6.2测试18.  我忘记在这里列出来的  </blockquote></li>
+</ol>
+</blockquote>
+<p>fetion.py一个CLI的飞信客户端</p>
+<p>   <blockquote>1.  多线程支持，同时收发消息2.  添加，删除，好友，判断好友是否隐身功能3.  占用资源少，我正写这博客的时候官方的飞信占我96.8M的内存4.  跨平台支持5.  扩展性好，加两行代码就可以实现从手机发命令关机等功能6.  其它我没发现的</blockquote></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="http://github.com/probberechts">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&text=PyFetion 0.2发布"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&title=PyFetion 0.2发布"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&is_video=false&description=PyFetion 0.2发布"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PyFetion 0.2发布&body=Check out this article: http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&title=PyFetion 0.2发布"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&title=PyFetion 0.2发布"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&title=PyFetion 0.2发布"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&title=PyFetion 0.2发布"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&name=PyFetion 0.2发布&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.bubutang.com/2009/12/13/pyfetion-0-2发布/&t=PyFetion 0.2发布"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2022
+    sarices
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

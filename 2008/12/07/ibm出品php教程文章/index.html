@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="IBM出品PHP教程文章  概述PHP 简介  部署安装 XAMPP 进行方便集成开发  源代码控制利用 PHP 和 Subversion 从零开始创建一个 blog  开发学习 PHP开始了解 PHP V5 中的对象用 PHP 走向动态学习 PHP，第一部分学习 PHP，第二部分学习 PHP，第三部分用 PHP 开发健壮的代码，第 1 部分用 PHP 开发健壮的代码，第 2 部分：有效地使用变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IBM出品PHP教程文章">
+<meta property="og:url" content="http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/index.html">
+<meta property="og:site_name" content="卜卜堂">
+<meta property="og:description" content="IBM出品PHP教程文章  概述PHP 简介  部署安装 XAMPP 进行方便集成开发  源代码控制利用 PHP 和 Subversion 从零开始创建一个 blog  开发学习 PHP开始了解 PHP V5 中的对象用 PHP 走向动态学习 PHP，第一部分学习 PHP，第二部分学习 PHP，第三部分用 PHP 开发健壮的代码，第 1 部分用 PHP 开发健壮的代码，第 2 部分：有效地使用变量">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-05-16T07:20:18.473Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IBM出品PHP教程文章">
+<meta name="twitter:description" content="IBM出品PHP教程文章  概述PHP 简介  部署安装 XAMPP 进行方便集成开发  源代码控制利用 PHP 和 Subversion 从零开始创建一个 blog  开发学习 PHP开始了解 PHP V5 中的对象用 PHP 走向动态学习 PHP，第一部分学习 PHP，第二部分学习 PHP，第三部分用 PHP 开发健壮的代码，第 1 部分用 PHP 开发健壮的代码，第 2 部分：有效地使用变量">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>IBM出品PHP教程文章</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2008/12/21/写在冬至/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2008/12/01/taotao2twitter同步qq签名到twitter/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&text=IBM出品PHP教程文章"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&title=IBM出品PHP教程文章"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&is_video=false&description=IBM出品PHP教程文章"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=IBM出品PHP教程文章&body=Check out this article: http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&title=IBM出品PHP教程文章"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&title=IBM出品PHP教程文章"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&title=IBM出品PHP教程文章"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&title=IBM出品PHP教程文章"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&name=IBM出品PHP教程文章&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&t=IBM出品PHP教程文章"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        IBM出品PHP教程文章
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">sarices</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2008-12-07T03:50:36.000Z" itemprop="datePublished">2008-12-07</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/旧文章/">旧文章</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><strong>IBM出品PHP教程文章</strong> </p>
+<p>概述<br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/intro/index.html" target="_blank" rel="noopener">PHP 简介</a> </p>
+<p>部署<br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/intro/index.html" target="_blank" rel="noopener">安装 XAMPP 进行方便集成开发</a> </p>
+<p>源代码控制<br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=108167" target="_blank" rel="noopener">利用 PHP 和 Subversion 从零开始创建一个 blog</a> </p>
+<p>开发<br>学习 PHP<br><a href="http://www-128.ibm.com/developerworks/cn/opensource/os-phpobj/" target="_blank" rel="noopener">开始了解 PHP V5 中的对象</a><br><a href="http://www-128.ibm.com/developerworks/cn/opensource/os-php-flexobj/" target="_blank" rel="noopener">用 PHP 走向动态</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=91117" target="_blank" rel="noopener">学习 PHP，第一部分</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=91118" target="_blank" rel="noopener">学习 PHP，第二部分</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=91693" target="_blank" rel="noopener">学习 PHP，第三部分</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/wa-phprock1/index.html" target="_blank" rel="noopener">用 PHP 开发健壮的代码，第 1 部分</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/wa-phprock2/index.html" target="_blank" rel="noopener">用 PHP 开发健壮的代码，第 2 部分：有效地使用变量</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/wa-phprock3/index.html" target="_blank" rel="noopener">用 PHP 开发健壮的代码，第 3 部分：编写可重用函数 – 充分利用函数</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/w-zoltan/index.html" target="_blank" rel="noopener">PHP 例解,第 1 部分：轻松的 Webzine 编辑和发送</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/web-zoltan2/index.html" target="_blank" rel="noopener">PHP 例解,第 2 部分：深入研究 Webzine 编辑和发送</a> </p>
+<p>高级 PHP<br><a href="http://www-128.ibm.com/developerworks/cn/opensource/os-advphpobj/" target="_blank" rel="noopener">高级 PHP V5 对象</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=110102" target="_blank" rel="noopener">用 PHP 构建 Web 服务</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=110077/" target="_blank" rel="noopener">用 PHP 绘制 3-D 图像</a><br><a href="http://www.ibm.com/developerworks/cn/opensource/os-objorient/" target="_blank" rel="noopener">使用 PHP 创建图形的巧妙方法</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=102961" target="_blank" rel="noopener">如何在 PHP 中使用正则表达式</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/wa-phpform/index.html" target="_blank" rel="noopener">结合 PHP 使用 HTML 表单</a><br><a href="http://www.ibm.com/developerworks/cn/opensource/os-xmldomphp/" target="_blank" rel="noopener">用 PHP 读取和编写 XML DOM</a><br><a href="http://www-128.ibm.com/developerworks/cn/opensource/os-phpws/index.html" target="_blank" rel="noopener">通过 PHP 脚本访问企业应用</a> </p>
+<p>PHP 设计<br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/php_design/index.html" target="_blank" rel="noopener">MVC 模式、类封装还是黑客代码——合理设计 PHP 项目</a> </p>
+<p>PHP 应用<br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=110077/" target="_blank" rel="noopener">使用 PHP 构建搜索优化应用程序，第 1 部分：入门</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=110095" target="_blank" rel="noopener">用 OpenLaszlo 装点 PHP 应用，第 1 部分: 创建交互式界面</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=110096" target="_blank" rel="noopener">用 OpenLaszlo 装点 PHP 应用，第 2 部分: PHP REST 和数据绑定</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=110097" target="_blank" rel="noopener">用 OpenLaszlo 装点 PHP 应用，第 3 部分: 添加数据库</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/l-snort/" target="_blank" rel="noopener">使用 Snort 和 PHP 构建一个小型网络防御系统</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/wa-phpolla/index.html" target="_blank" rel="noopener">用 PHP 使 Web 数据分析进入更高境界 – 设计您的数据分析，做比简单原始计数更多的事</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/wa-linphp/index.html" target="_blank" rel="noopener">用 PHP 实现的简单线性回归：第 1 部分 – 数学库在 PHP 中的重要性</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/wa-linphp2/index.html" target="_blank" rel="noopener">用 PHP 实现的简单线性回归，第 2 部分 – 解决输出和概率函数缺陷的数据研究工具</a> </p>
+<p>调试和监测<br><a href="http://www-128.ibm.com/developerworks/cn/opensource/os-debug/" target="_blank" rel="noopener">PHP 程序员的调试技术</a> </p>
+<p>集成<br>IBM 数据库服务器<br><a href="http://www.ibm.com/developerworks/cn/db2/library/techarticles/dm-0511appdev/" target="_blank" rel="noopener">使用 DB2 UDB 进行应用程序开发</a><br><a href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0502scott/?S_TACT=105AGX52&amp;S_CMP=cn-a-os" target="_blank" rel="noopener">用 PHP 开发 IBM Cloudscape 和 DB2 通用数据库应用程序</a><br><a href="http://www.ibm.com/developerworks/cn/db2/library/techarticles/dm-0505furlong/" target="_blank" rel="noopener">通过 PDO 将 PHP 连接到 DB2 和 Cloudscape</a><br><a href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0502nickolas/?S_TACT=105AGX52&amp;S_CMP=cn-a-os" target="_blank" rel="noopener">Zend Core for IBM 技术路线图</a><br><a href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0507hutchison/?S_TACT=105AGX52&amp;S_CMP=cn-a-os" target="_blank" rel="noopener">Zend Core for IBM - PHP 开发人员指南</a><br><a href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0602hutchison/?S_TACT=105AGX52&amp;S_CMP=cn-a-os" target="_blank" rel="noopener">DB2 Express-C：IBM 提供的免费大餐</a> </p>
+<p>IBM Web 和应用服务器<br><a href="http://www.ibm.com/developerworks/cn/opensource/os-phphttp/" target="_blank" rel="noopener">在 IBM HTTP Server 上部署 PHP 应用程序</a><br><a href="http://www.ibm.com/developerworks/cn/websphere/techjournal/0505_krook/0505_krook.html" target="_blank" rel="noopener">IBM WebSphere 开发者技术期刊: 使用 PHP 和 J2EE 来实现通用的 Web 应用程序基础架构</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=108168" target="_blank" rel="noopener">在 Apache Geronimo 中运行 PHP 应用程序</a> </p>
+<p>第三方服务<br><a href="http://www.ibm.com/developerworks/cn/views/webservices/tutorials.jsp?cv_doc_id=96126" target="_blank" rel="noopener">使用 Web 服务和 eBay SDK 开发应用程序，第 1 部分： 构建 eBay 搜索引擎</a><br><a href="http://www.ibm.com/developerworks/cn/views/webservices/tutorials.jsp?cv_doc_id=102702" target="_blank" rel="noopener">使用 Web 服务和 eBay SDK 开发应用程序，第 2 部分：使用 eBay SOAP API 构建一个 eBay 搜索引擎</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=101469" target="_blank" rel="noopener">用 PHP、Derby 和 PayPal 创建 Web 店面，第 1 部分：设置基本数据库</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=101470" target="_blank" rel="noopener">用 PHP、Derby 和 PayPal 创建 Web 店面，第 2 部分：收集付款</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=101471" target="_blank" rel="noopener">用 PHP、Derby 和 PayPal 创建 Web 店面，第 3 部分: 设置订单、送货和电子邮件</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=100537" target="_blank" rel="noopener">用 PHP 创建 Amazon 店面，第 1 部分：用 Amazon ECS 获得内容</a> </p>
+<p>扩展<br><a href="http://www.ibm.com/developerworks/cn/opensource/os-sdophp/" target="_blank" rel="noopener">PHP 服务数据对象简介</a><br><a href="http://www-128.ibm.com/developerworks/cn/opensource/os-phpbot/" target="_blank" rel="noopener">如何使您的 PHP 应用程序变成聊天机器人</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/template/evaluate/index.html" target="_blank" rel="noopener">在 PHP 世界中选择最合适的模板</a> </p>
+<p>PEAR（PHP Extension and Application Repository）<br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/pear1/index.html" target="_blank" rel="noopener">PEAR 简介：用 PEAR 来写你的下一个 PHP 程序</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/pear2/index.html" target="_blank" rel="noopener">PEAR 简介：常用模块</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/pear3/index.html" target="_blank" rel="noopener">PEAR 简介：使用 PHPDoc 轻松建立你的 PEAR 文档</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/pear4/index.html" target="_blank" rel="noopener">PEAR 简介：创建中间的数据库应用层</a><br><a href="http://www-128.ibm.com/developerworks/cn/linux/sdk/php/pear5/index.html" target="_blank" rel="noopener">PEAR 实践：PHP 中 MVC 机制的实现</a> </p>
+<p>安全性<br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=110103" target="_blank" rel="noopener">确保 PHP 应用程序的安全</a><br><a href="http://www-128.ibm.com/developerworks/cn/opensource/os-php1/" target="_blank" rel="noopener">审计 PHP，第 1 部分：理解 register_globals</a> </p>
+<p>PHP Zend 框架<br><a href="http://www-128.ibm.com/developerworks/cn/opensource/os-php-zend1/index.html" target="_blank" rel="noopener">理解 Zend 框架，第 1 部分：基础 – 介绍 Zend 框架</a><br><a href="http://www-128.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=169446" target="_blank" rel="noopener">理解 Zend 框架，第 2 部分: 模型-视图-控制器及添加数据库</a><br><a href="http://www-128.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=169447" target="_blank" rel="noopener">理解 Zend 框架，第 3 部分: 提要（RSS）</a><br><a href="http://www-128.ibm.com/developerworks/cn/opensource/os-php-zend4/index.html" target="_blank" rel="noopener">理解 Zend 框架，第 4 部分: 使用 Zend_HTTP_Client 获取无提要的内容</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=170879" target="_blank" rel="noopener">理解 Zend 框架，第 5 部分: 创建 PDF 文件</a><br><a href="http://www-128.ibm.com/developerworks/cn/opensource/os-php-zend6/index.html" target="_blank" rel="noopener">理解 Zend 框架，第 6 部分: 发送电子邮件</a><br><a href="http://www-128.ibm.com/developerworks/cn/opensource/os-php-zend7/index.html" target="_blank" rel="noopener">理解 Zend 框架，第 7 部分: 搜索</a><br><a href="http://www.ibm.com/developerworks/cn/views/opensource/tutorials.jsp?cv_doc_id=170880" target="_blank" rel="noopener">理解 Zend 框架，第 8 部分：添加相关信息和服务</a><br><a href="http://www-128.ibm.com/developerworks/cn/opensource/os-php-zend9/index.html" target="_blank" rel="noopener">理解 Zend 框架，第 9 部分: 用 Ajax 和 JSON 添加交互性</a> </p>
+<p>原文：<a href="http://www.21andy.com/blog/20080228/1015.html" title="http://www.21andy.com/blog/20080228/1015.html" target="_blank" rel="noopener">http://www.21andy.com/blog/20080228/1015.html</a><br> <div style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; padding-top: 0px" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:024f2c8c-cdd4-493d-9c26-1cfe5256a04c" class="wlWriterSmartContent">Technorati 标签: <a href="http://technorati.com/tags/php" target="_blank" rel="noopener">php</a>,<a href="http://technorati.com/tags/IBM" target="_blank" rel="noopener">IBM</a>,<a href="http://technorati.com/tags/%e6%95%99%e7%a8%8b" target="_blank" rel="noopener">教程</a></div></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="http://github.com/probberechts">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&text=IBM出品PHP教程文章"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&title=IBM出品PHP教程文章"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&is_video=false&description=IBM出品PHP教程文章"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=IBM出品PHP教程文章&body=Check out this article: http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&title=IBM出品PHP教程文章"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&title=IBM出品PHP教程文章"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&title=IBM出品PHP教程文章"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&title=IBM出品PHP教程文章"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&name=IBM出品PHP教程文章&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.bubutang.com/2008/12/07/ibm出品php教程文章/&t=IBM出品PHP教程文章"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2022
+    sarices
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

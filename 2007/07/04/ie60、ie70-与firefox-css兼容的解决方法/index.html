@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="1.DOCTYPE 影响 CSS 处理   2.FF: div 设置 margin-left, margin-right 为 auto 时已经居中, IE 不行   3.FF: body 设置 text-align 时, div 需要设置 margin: auto(主要是 margin-left,margin-right) 方可居中   4.FF: 设置 padding 后, div 会增加 he">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IE6.0、IE7.0 与FireFox CSS兼容的解决方法">
+<meta property="og:url" content="http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/index.html">
+<meta property="og:site_name" content="卜卜堂">
+<meta property="og:description" content="1.DOCTYPE 影响 CSS 处理   2.FF: div 设置 margin-left, margin-right 为 auto 时已经居中, IE 不行   3.FF: body 设置 text-align 时, div 需要设置 margin: auto(主要是 margin-left,margin-right) 方可居中   4.FF: 设置 padding 后, div 会增加 he">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-05-16T07:20:18.489Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IE6.0、IE7.0 与FireFox CSS兼容的解决方法">
+<meta name="twitter:description" content="1.DOCTYPE 影响 CSS 处理   2.FF: div 设置 margin-left, margin-right 为 auto 时已经居中, IE 不行   3.FF: body 设置 text-align 时, div 需要设置 margin: auto(主要是 margin-left,margin-right) 方可居中   4.FF: 设置 padding 后, div 会增加 he">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>IE6.0、IE7.0 与FireFox CSS兼容的解决方法</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2007/07/09/如果朋友是你的下属/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2007/06/27/ie6不能设背景图片最小高度的bug/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&text=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&title=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&is_video=false&description=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=IE6.0、IE7.0 与FireFox CSS兼容的解决方法&body=Check out this article: http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&title=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&title=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&title=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&title=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&name=IE6.0、IE7.0 与FireFox CSS兼容的解决方法&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&t=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        IE6.0、IE7.0 与FireFox CSS兼容的解决方法
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">sarices</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2007-07-04T08:51:09.000Z" itemprop="datePublished">2007-07-04</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/旧文章/">旧文章</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>1.DOCTYPE 影响 CSS 处理  </p>
+<p>2.FF: div 设置 margin-left, margin-right 为 auto 时已经居中, IE 不行  </p>
+<p>3.FF: body 设置 text-align 时, div 需要设置 margin: auto(主要是 margin-left,margin-right) 方可居中  </p>
+<p>4.FF: 设置 padding 后, div 会增加 height 和 width, 但 IE 不会, 故需要用 !important 多设一个 height 和 width  </p>
+<p>5.FF: 支持 !important, IE 则忽略, 可用 !important 为 FF 特别设置样式  </p>
+<p>6.div 的垂直居中问题: vertical-align:middle; 将行距增加到和整个DIV一样高 line-height:200px; 然后插入文字，就垂直居中了。缺点是要控制内容不要换行  </p>
+<p>7.cursor: pointer 可以同时在 IE FF 中显示游标手指状， hand 仅 IE 可以  </p>
+<p>8.FF: 链接加边框和背景色，需设置 display: block, 同时设置 float: left 保证不换行。参照 menubar, 给 a 和 menubar 设置高度是为了避免底边显示错位, 若不设 height, 可以在 menubar 中插入一个空格。  </p>
+<p>9.在mozilla firefox和IE中的BOX模型解释不一致导致相差2px解决方法： div{margin:30px!important;margin:28px;}注意这两个margin的顺序一定不能写反，据阿捷的说法!important这个属性IE不能识别，但别的浏览器可以识别。所以在IE下其实解释成这样： div{maring:30px;margin:28px}重复定义的话按照最后一个来执行，所以不可以只写margin:XXpx!important;  </p>
+<p>11.ul标签在Mozilla中默认是有padding值的,而在IE中只有margin有值所以先定义 ul{margin:0;padding:0;}就能解决大部分问题  </p>
+<p><strong>注意事项：</strong>  </p>
+<p><strong>1、float的div一定要闭合。</strong>  </p>
+<p>例如：(其中floatA、floatB的属性已经设置为float:left;) &lt;#div id=”floatA” &gt;&lt;/#div&gt;<br>&lt;#div id=”floatB” &gt;&lt;/#div&gt;<br>&lt;#div id=”NOTfloatC” &gt;&lt;/#div&gt;这里的NOTfloatC并不希望继续平移，而是希望往下排。<br>这段代码在IE中毫无问题，问题出在FF。原因是NOTfloatC并非float标签，必须将float标签闭合。<br>在 &lt;#div class=”floatB”&gt;&lt;/#div&gt;<br>&lt;#div class=”NOTfloatC”&gt;&lt;/#div&gt;之间加上 &lt;#div class=”clear”&gt;&lt;/#div&gt;这个div一定要注意声明位置，一定要放在最恰当的地方，而且必须与两个具有float属性的div同级，之间不能存在嵌套关系，否则会产生异常。<br>并且将clear这种样式定义为为如下即可： .clear{<br>clear:both;}此外，为了让高度能自动适应，要在wrapper里面加上overflow:hidden;<br>当包含float的box的时候，高度自动适应在IE下无效，这时候应该触发IE的layout私有属性(万恶的IE啊！)用zoom:1;可以做到，这样就达到了兼容。<br>例如某一个wrapper如下定义： .colwrapper{<br>overflow:hidden;<br>zoom:1;<br>margin:5px auto;}  </p>
+<p><strong>2、margin加倍的问题</strong>  </p>
+<p>设置为float的div在ie下设置的margin会加倍。这是一个ie6都存在的bug。<br>解决方案是在这个div里面加上display:inline;<br>例如：<br>&lt;#div id=”imfloat”&gt;&lt;/#div&gt;<br>相应的css为</p>
+<p>#IamFloat{<br>float:left;<br>margin:5px;/<em>IE下理解为10px</em>/<br>display:inline;/<em>IE下再理解为5px</em>/}  </p>
+<p><strong>3、关于容器的包涵关系</strong>  </p>
+<p>很多时候，尤其是容器内有平行布局，例如两、三个float的div时，宽度很容易出现问题。在IE中，外层的宽度会被内层更宽的div挤破。一定要用Photoshop或者Firework量取像素级的精度。  </p>
+<p><strong>4、关于高度的问题</strong>  </p>
+<p>如果是动态地添加内容，高度最好不要定义。浏览器可以自动伸缩，然而如果是静态的内容，高度最好定好。（似乎有时候不会自动往下撑开，不知道具体怎么回事）  </p>
+<p><strong>5、最狠的手段 - !important;</strong>  </p>
+<p>如果实在没有办法解决一些细节问题,可以用这个方法.FF对于”!important”会自动优先解析,然而IE则会忽略.如下 .tabd1{<br>background:url(/res/images/up/tab1.gif) no-repeat 0px 0px !important; /<em>Style for FF</em>/<br>background:url(/res/images/up/tab1.gif) no-repeat 1px 0px; /<em> Style for IE </em>/}值得注意的是，一定要将xxxx !important 这句放置在另一句之上，上面已经提过  </p>
+<p>IE7.0出来了，对CSS的支持又有新问题。浏览器多了，网页兼容性更差了，疲于奔命的还是我们 ，为解决IE7.0的兼容问题，找来了下面这篇文章：  </p>
+<p>现在我大部分都是用!important来hack，对于ie6和firefox测试可以正常显示，但是ie7对!important可以正确解释，会导致页面没按要求显示！搜索了一下，找到一个针对IE7不错的hack方式就是使用“*+html”，现在用IE7浏览一下，应该没有问题了。  </p>
+<p>现在写一个CSS可以这样：</p>
+<p>#example { color: #333; } /<em> Moz </em>/</p>
+<ul>
+<li>html #example { color: #666; } /<em> IE6 </em>/<br><em>+html #example { color: #999; } /</em> IE7 */  </li>
+</ul>
+<p>那么在firefox下字体颜色显示为#333，IE6下字体颜色显示为#666，IE7下字体颜色显示为#999.<br> <div class="wlWriterSmartContent" id="0767317B-992E-4b12-91E0-4F059A8CECA8:6ee83999-e20c-45b1-8599-61a220d31006" contenteditable="false" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati 标记: <a href="http://technorati.com/tags/ie" target="_blank" rel="noopener">ie</a>, <a href="http://technorati.com/tags/firefox" target="_blank" rel="noopener">firefox</a>, <a href="http://technorati.com/tags/%e5%85%bc%e5%ae%b9" target="_blank" rel="noopener">兼容</a></div></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="http://github.com/probberechts">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&text=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&title=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&is_video=false&description=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=IE6.0、IE7.0 与FireFox CSS兼容的解决方法&body=Check out this article: http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&title=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&title=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&title=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&title=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&name=IE6.0、IE7.0 与FireFox CSS兼容的解决方法&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.bubutang.com/2007/07/04/ie60、ie70-与firefox-css兼容的解决方法/&t=IE6.0、IE7.0 与FireFox CSS兼容的解决方法"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2022
+    sarices
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

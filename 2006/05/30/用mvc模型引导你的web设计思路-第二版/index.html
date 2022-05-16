@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="习惯于过程式的开发，一直向往着面向对象。无奈半路出家人，没有一点内力基础，看了一大堆面向对象的书也只是看得一头雾水。对于MVC的概念也是偶然了解到的，感觉能和WEB开发结合起来让项目面向对象化。以下是我一点点心得。先介绍一下MVC的概念：MVC(Model-View-Controller)，即把一个应用的输入、输出、处理流程按照Model、View、Controller的方式进行分离，这样一个应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用MVC模型引导你的WEB设计思路-第二版 ">
+<meta property="og:url" content="http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/index.html">
+<meta property="og:site_name" content="卜卜堂">
+<meta property="og:description" content="习惯于过程式的开发，一直向往着面向对象。无奈半路出家人，没有一点内力基础，看了一大堆面向对象的书也只是看得一头雾水。对于MVC的概念也是偶然了解到的，感觉能和WEB开发结合起来让项目面向对象化。以下是我一点点心得。先介绍一下MVC的概念：MVC(Model-View-Controller)，即把一个应用的输入、输出、处理流程按照Model、View、Controller的方式进行分离，这样一个应用">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-05-16T07:20:23.341Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用MVC模型引导你的WEB设计思路-第二版 ">
+<meta name="twitter:description" content="习惯于过程式的开发，一直向往着面向对象。无奈半路出家人，没有一点内力基础，看了一大堆面向对象的书也只是看得一头雾水。对于MVC的概念也是偶然了解到的，感觉能和WEB开发结合起来让项目面向对象化。以下是我一点点心得。先介绍一下MVC的概念：MVC(Model-View-Controller)，即把一个应用的输入、输出、处理流程按照Model、View、Controller的方式进行分离，这样一个应用">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>用MVC模型引导你的WEB设计思路-第二版 </title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2006/05/30/网站后台权限管理/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2006/05/28/春天还没有走？/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&text=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&title=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&is_video=false&description=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=用MVC模型引导你的WEB设计思路-第二版 &body=Check out this article: http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&title=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&title=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&title=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&title=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&name=用MVC模型引导你的WEB设计思路-第二版 &description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&t=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        用MVC模型引导你的WEB设计思路-第二版 
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">sarices</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2006-05-29T16:13:54.000Z" itemprop="datePublished">2006-05-30</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/旧文章/">旧文章</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>习惯于过程式的开发，一直向往着面向对象。无奈半路出家人，没有一点内力基础，看了一大堆面向对象的书也只是看得一头雾水。对于MVC的概念也是偶然了解到的，感觉能和WEB开发结合起来让项目面向对象化。以下是我一点点心得。<br>先介绍一下MVC的概念：<br>MVC(Model-View-Controller)，即把一个应用的输入、输出、处理流程按照Model、View、Controller的方式进行分离，这样一个应用被分成三个层——模型层、视图层、控制层。<br>　模型(Model)：就是业务流程/状态的处理以及业务规则的制定。即是MVC的主要核心。<br>　视图(View)：代表用户交互界面，也就是Web的HTML界面。<br>　控制(Controller)：可以理解为从用户接收请求, 将模型与视图匹配在一起，共同完成用户的请求。</p>
+<p>以下以一个简单的留言板作为分析例子。</p>
+<p>1)从上面的概念来看，留言板可以切成三部份。<br>　模型(M)：包含 数据库链接、生成数据集、数据库更新操作。<br>　视图(V)：包含 获取模型的数据集，将数据集内填充到各种显示界面内，如（留言板列表，管理控制页面，添加修改删除界面等一切用户看得到的页面。）<br>　控制(C)：包含 数据库更新的数据校验，将更新完毕后的结果转交给视图进行呈现。</p>
+<p>2)三部份已经出来，下面是更进一步的细化。<br>　模型(M)<br>　　数据链接：数据链接参数、链接失败处理。<br>　　数据操作：生成固定格式的数据集、运行单行SQL、解析固定格式的数据集更新数据库（内容包括有：留言记录，管理员帐号，系统设定）。<br>　　文件操作：将文件内部格式封成数据集，并附带读取写入文件操作。（内容包括有：留言板样式设定、版权设定、搜索引擎关键字设定、留言板标题设定）<br>　视图(V)<br> 数据显示：根据要求授权给控制器[C]向模型[M]请求数据集，然后根据数据集显示出界面。<br> 操作结果显示：根据控制返回的数据资料决定显示的提示资料<br> 具体资料包括有：<br> 　　留言添加页：判断留言者是否管理员、判断本次留言是回复还是新建留言。<br> 　　留言管理页：批量删除留言、查询留言、管理员帐号管理、系统设定等。<br> 　　留言显示页：判断留言是否为管理员专用、判断本留言是否为管理员发布、是否允许回复、是否显示留言者的敏感资料、留言是否需要审核后再显示。</p>
+<p>　控制(C)<br>　　数据/文件操作：接收操作资料，校验数据是否符合条件，引用模型的生成数据集类生成指定数据集，然后交给相应的模型操作方法操作，并获取操作结果以预定好的格式转交给视图处理</p>
+<p>3)系统基本上细化完毕，下一步就是将以上分析出来的东西封装成Class<br>　　模型(M)：<br>　　　　数据库链接和数据操作可以封成一个Class。<br>　　　　数据库数据集的结构，可以引用Dictionary控件与数组完成。其间操作也可以封成一个Class具体可以仿造ASP.net中Dataset对象的部份机构。<br>　　　　文件操作部份封装成一个Class<br>　　　　文件结构定义可以封成一个Class以方便控制直接引用，然后转交给文件操作Class进行相应的操作。<br>　　视图(V)：<br>　　　　视图部可均是以文件模式出现，也可以将部份代码封装后引用。也可以引用现有的模板类实现代码分离等。<br>　　控制(C)：<br>　　　　数据校验：SQL注入防御处理、日文字符替换处理、特定常用校验正则式，这个是控制器常用的函数，可以封成Class也可以以函数型式存在独立文件，使用时直接引用。<br>　　　　数据/文件更新操作：由于直接操作，可以避免使用Class，而是以文件模式出现，每个文件处理模型(M)中的某个类。并完成控制(C)的工作。<br>　　　　视图[V]模型[C]链接器：接收视图[V]要求数据集的请求，将请求转换成模型[M]合适的SQL句，然后交给模型[M]数据集成生器生成数据集，然后返回给视图[V]，这个处理比较麻烦，如果没必要作得太严谨的话可以直接使用字段名，并在视图[V]以SQL标准的条件句进向模型[M]请求数据。</p>
+<p>　疑：<br>　　视图[V]模型[C]链接器，对这个的设定我还是有点迟疑的。因为在MVC中，V对M的请求中是不需要C的掺和的，但是，这个链接器的操作确实很符合C的概念，所以这里我把它放在了控制器[C]里。或许他可以放至在视图[V]内。毕竟这个是视图[V]的事。这个就看每个人对MVC的理解了。</p>
+<p>以上基本完成了留言板的结构分析与类的抽象，有不少的地方比较繁琐，甚至是啰嗦，一个留言板其实是没必要这样，不过，这个例子里作出来的不少Class可以直接使用在其它更大的项目中去，比如控制器[C]中的数据集请求转换器，校验部份、模型[M]中的数据库链接等，之所以遵循MVC模型进行编程不但是为了让程序设计更灵活，最重要一点是可以很快将项目拆开成一小块一小块，然后又将这些小块再折成更小的块，一直折到单个类的某个方法某个属性，等你完成这些小块代码后，那系统也就完成了。<br>其实这个已经是第二版，非常感谢蓝色经典里的5do8[老农]，他看了我的第一版之后和我聊了不到十分钟，让我重新认识了MVC，更进一步的完善了这篇引导文章。我还在继续摸索中，也有可能会不断的更新这篇资料。希望对大家都有所帮助。<br>如果对上面的资料有什么想法和建议的可以到我的Blog找我，本篇文章的最新版可以到(<a href="http://blog.csdn.net/oyiboy/archive/2006/02/09/595164.aspx" target="_blank" rel="noopener">http://blog.csdn.net/oyiboy/archive/2006/02/09/595164.aspx</a>)查看。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="http://github.com/probberechts">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&text=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&title=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&is_video=false&description=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=用MVC模型引导你的WEB设计思路-第二版 &body=Check out this article: http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&title=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&title=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&title=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&title=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&name=用MVC模型引导你的WEB设计思路-第二版 &description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.bubutang.com/2006/05/30/用mvc模型引导你的web设计思路-第二版/&t=用MVC模型引导你的WEB设计思路-第二版 "><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2022
+    sarices
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

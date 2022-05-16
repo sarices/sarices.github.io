@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="Spore(孢子)终于出来了，下载了一晚终于安装上了，不过运行时却提示却少d3dx9_27.dll文件，这是dx9的方法，不过Vista是dx10的，在网上搜索了一下，原来只要下载d3dx9_27.dll文件放到system32下就可以了，如果你也遇到这种情况，就照这个方法做。 下载d3dx9_27.dll Technorati 标签: Spore,孢子,Vista,d3dx9_27.dll,解决">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vista下玩Spore却少d3dx9_27.dll的解决方法">
+<meta property="og:url" content="http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/index.html">
+<meta property="og:site_name" content="卜卜堂">
+<meta property="og:description" content="Spore(孢子)终于出来了，下载了一晚终于安装上了，不过运行时却提示却少d3dx9_27.dll文件，这是dx9的方法，不过Vista是dx10的，在网上搜索了一下，原来只要下载d3dx9_27.dll文件放到system32下就可以了，如果你也遇到这种情况，就照这个方法做。 下载d3dx9_27.dll Technorati 标签: Spore,孢子,Vista,d3dx9_27.dll,解决">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-05-16T07:20:20.097Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vista下玩Spore却少d3dx9_27.dll的解决方法">
+<meta name="twitter:description" content="Spore(孢子)终于出来了，下载了一晚终于安装上了，不过运行时却提示却少d3dx9_27.dll文件，这是dx9的方法，不过Vista是dx10的，在网上搜索了一下，原来只要下载d3dx9_27.dll文件放到system32下就可以了，如果你也遇到这种情况，就照这个方法做。 下载d3dx9_27.dll Technorati 标签: Spore,孢子,Vista,d3dx9_27.dll,解决">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Vista下玩Spore却少d3dx9_27.dll的解决方法</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2008/09/26/周杰伦2008最新《魔杰座》温馨励志首波主打《稻香/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2008/09/18/究竟喜欢什么味道/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&text=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&title=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&is_video=false&description=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Vista下玩Spore却少d3dx9_27.dll的解决方法&body=Check out this article: http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&title=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&title=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&title=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&title=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&name=Vista下玩Spore却少d3dx9_27.dll的解决方法&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&t=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Vista下玩Spore却少d3dx9_27.dll的解决方法
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">sarices</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2008-09-18T03:56:58.000Z" itemprop="datePublished">2008-09-18</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/旧文章/">旧文章</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="http://zh.wikipedia.org/w/index.php?title=Spore&amp;variant=zh-hans" title="Spore&amp;variant=zh-hans" target="_blank" rel="noopener">Spore(孢子)</a>终于出来了，下载了一晚终于安装上了，不过运行时却提示却少d3dx9_27.dll文件，这是dx9的方法，不过Vista是dx10的，在网上<a href="http://www.google.cn/search?num=100&amp;complete=1&amp;hl=zh-CN&amp;newwindow=1&amp;c2coff=1&amp;client=pub-9550361111292292&amp;prog=aff&amp;q=d3dx9_27.dll+spore+vista&amp;btnG=Google+搜索&amp;meta=&amp;aq=f&amp;oq=" target="_blank" rel="noopener">搜索了一下</a>，原来只要下载d3dx9_27.dll文件放到system32下就可以了，如果你也遇到这种情况，就照这个方法做。</p>
+<p><a href="http://www.dll-files.com/dllindex/dll-files.shtml?d3dx9_27" target="_blank" rel="noopener">下载d3dx9_27.dll</a><br> <div class="wlWriterSmartContent" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:1f2e3d07-44ab-4cb1-8ee9-d7ee07eb61e3" style="padding-right: 0px; display: inline; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">Technorati 标签: <a href="http://technorati.com/tags/Spore" target="_blank" rel="noopener">Spore</a>,<a href="http://technorati.com/tags/%e5%ad%a2%e5%ad%90" target="_blank" rel="noopener">孢子</a>,<a href="http://technorati.com/tags/Vista" target="_blank" rel="noopener">Vista</a>,<a href="http://technorati.com/tags/d3dx9_27.dll" target="_blank" rel="noopener">d3dx9_27.dll</a>,<a href="http://technorati.com/tags/%e8%a7%a3%e5%86%b3" target="_blank" rel="noopener">解决</a>,<a href="http://technorati.com/tags/%e6%96%b9%e6%b3%95" target="_blank" rel="noopener">方法</a>,<a href="http://technorati.com/tags/dx10" target="_blank" rel="noopener">dx10</a></div></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="http://github.com/probberechts">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&text=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&title=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&is_video=false&description=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Vista下玩Spore却少d3dx9_27.dll的解决方法&body=Check out this article: http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&title=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&title=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&title=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&title=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&name=Vista下玩Spore却少d3dx9_27.dll的解决方法&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://blog.bubutang.com/2008/09/18/vista下玩spore却少d3dx9_27dll的解决方法/&t=Vista下玩Spore却少d3dx9_27.dll的解决方法"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2022
+    sarices
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
